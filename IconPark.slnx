@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="gallery/IconParkGallery.Desktop/IconParkGallery.Desktop.csproj" />
+  <Project Path="gallery/IconParkGallery/IconParkGallery.csproj" />
+  <Project Path="src/AtomUI.Icons.IconPark.Generator/AtomUI.Icons.IconPark.Generator.csproj" />
+  <Project Path="src/AtomUI.Icons.IconPark/AtomUI.Icons.IconPark.csproj" />
+</Solution>
