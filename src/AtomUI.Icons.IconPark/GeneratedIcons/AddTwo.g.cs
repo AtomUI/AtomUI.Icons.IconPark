@@ -1,0 +1,64 @@
+// This code is auto generated. Do not modify.
+// Generated Date: 2025-12-02
+
+using Avalonia;
+using System;
+using Avalonia.Media;
+using AtomUI.Controls;
+using AtomUI.Media;
+namespace AtomUI.Icons.IconPark;
+
+public class AddTwo : IconParkIcon
+{
+    public AddTwo()
+    {
+        IconTheme = IconThemeType.Filled;
+        ViewBox = new Rect(0, 0, 48, 48);
+    }
+
+    private static readonly DrawingInstruction[] StaticInstructions = [
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = false,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M33 7.26261C30.3212 5.81915 27.2563 5 24 5C13.5066 5 5 13.5066 5 24C5 34.4934 13.5066 43 24 43C26.858 43 29.5685 42.369 32 41.2387"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M31 30L43 30"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M15 22L22 29L41 11"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M37 24V36"),
+        },
+    ];
+
+    protected override IList<DrawingInstruction> DrawingInstructions => StaticInstructions;
+}
+

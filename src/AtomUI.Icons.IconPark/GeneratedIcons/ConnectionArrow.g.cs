@@ -1,0 +1,54 @@
+// This code is auto generated. Do not modify.
+// Generated Date: 2025-12-02
+
+using Avalonia;
+using System;
+using Avalonia.Media;
+using AtomUI.Controls;
+using AtomUI.Media;
+namespace AtomUI.Icons.IconPark;
+
+public class ConnectionArrow : IconParkIcon
+{
+    public ConnectionArrow()
+    {
+        IconTheme = IconThemeType.Filled;
+        ViewBox = new Rect(0, 0, 48, 48);
+    }
+
+    private static readonly DrawingInstruction[] StaticInstructions = [
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M40.9898 8.02661H12.1818C9.45455 8.02661 4 9.55073 4 15.9674C4 22.3841 9.45455 24.0001 12.1818 24.0001H35.9939C38.7211 24.0001 44 25.5681 44 31.9848C44 38.4014 38.7211 40.0031 35.9939 40.0031H6.06499"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M8.04567 35.9927L4.06738 40.0592L8.04567 44.0001"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M38.0427 3.95386L42.021 8.02038L38.0427 11.9612"),
+        },
+    ];
+
+    protected override IList<DrawingInstruction> DrawingInstructions => StaticInstructions;
+}
+

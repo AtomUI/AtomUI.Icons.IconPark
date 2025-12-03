@@ -1,0 +1,135 @@
+// This code is auto generated. Do not modify.
+// Generated Date: 2025-12-02
+
+using Avalonia;
+using System;
+using Avalonia.Media;
+using AtomUI.Controls;
+using AtomUI.Media;
+namespace AtomUI.Icons.IconPark;
+
+public class CompassOne : IconParkIcon
+{
+    public CompassOne()
+    {
+        IconTheme = IconThemeType.Filled;
+        ViewBox = new Rect(0, 0, 48, 48);
+    }
+
+    private static readonly DrawingInstruction[] StaticInstructions = [
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            FillBrush = IconBrushType.Fill,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = false,
+            IsStrokeLinejoinCustomizable = false,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M24 44C33.3888 44 41 36.3888 41 27C41 17.6112 33.3888 10 24 10C14.6112 10 7 17.6112 7 27C7 36.3888 14.6112 44 24 44Z"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M19 4H29"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.SecondaryStroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M20 27L24 20L28 27L24 34L20 27Z"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.SecondaryStroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M7 27H11"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.SecondaryStroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M37 27H41"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.SecondaryStroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M24 10L24 14"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.SecondaryStroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M24 40L24 44"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M17.5 42.7131C19.5024 43.5424 21.6978 44 24 44C26.3022 44 28.4976 43.5424 30.5 42.7131"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M8.28691 20.5C7.45764 22.5024 7 24.6978 7 27C7 29.3022 7.45764 31.4976 8.28691 33.5"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M39.7129 20.5C40.5422 22.5024 40.9998 24.6978 40.9998 27C40.9998 29.3022 40.5422 31.4976 39.7129 33.5"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M17.0078 11.5C19.1405 10.5364 21.5077 10 24.0001 10C26.4925 10 28.8597 10.5364 30.9924 11.5"),
+        },
+    ];
+
+    protected override IList<DrawingInstruction> DrawingInstructions => StaticInstructions;
+}
+

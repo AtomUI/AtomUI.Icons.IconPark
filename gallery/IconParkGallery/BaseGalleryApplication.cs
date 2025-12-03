@@ -1,5 +1,5 @@
 using Avalonia;
-using MaterialGallery.Workspace.Views;
+using IconParkGallery.Workspace.Views;
 
 namespace IconParkGallery;
 

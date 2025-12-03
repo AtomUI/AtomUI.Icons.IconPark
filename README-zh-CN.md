@@ -1,17 +1,17 @@
-# AtomUI.Icons.Material 简介
+# AtomUI.Icons.IconPark 介绍
 
-AtomUI.Icons.Material 是面向 AtomUI OSS 框架的图标库封装，基于 Google Material Icons 项目，提供统一的 API 与命名规范，让你在 AtomUI 中即可使用原生 Material 图标的完整风格与语义。
+AtomUI.Icons.IconPark 是为 AtomUI OSS 框架封装的图标库，基于字节跳动 IconPark 图标项目构建。它提供统一的 API 和命名规范，使您能够在 AtomUI OSS 中使用原生的 IconPark 图标样式与语义。
 
 ## 主要特性
-- 覆盖 Material Icons 的常见风格：Filled / Outlined / Rounded / TwoTone / Sharp
-- 与 AtomUI 的 Icon 组件无缝接入，统一的使用体验
-- 按需加载与可树摇（tree-shaking），优化体积与性能
-- 语义化命名与可选类型提示，提升开发体验
-- 支持基础的尺寸、颜色、旋转、动画等常用定制
+- 支持的图标主题：实心 / 线框 / 双色 / 多色
+- 与 AtomUI 的 Icon 组件无缝集成，具备统一的属性和事件
+- 支持按需加载与裁减优化，以优化打包体积和性能
+- 语义化命名并可选提供类型提示，提升开发体验
+- 支持基础自定义设置，如尺寸、颜色、旋转、动画等
 
-## 许可
-- Google Material Icons 基于 Apache License 2.0
-- 本库为对其的二次封装，使用时请遵循原始许可与相应条款
+## 许可协议
+- 字节跳动 IconPark 图标基于 Apache License 2.0 授权
+- 本库为二次封装，请遵守原始许可证及相关适用条款
 
-## 参考
-- Google Material Icons: https://fonts.google.com/icons
+## 致谢
+- 字节跳动 IconPark 图标项目：https://github.com/bytedance/IconPark

@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using AtomUI.Controls;
 
 namespace AtomUI.Icons.IconPark;
 
@@ -27,4 +28,8 @@ public class IconMetaInfo
 
     [JsonPropertyName("rtl")]
     public bool Rtl { get; set; }
+    
+    public Icon? Icon { get; set; }
+    public Type? IconType { get; set; }
+    public Func<Icon>? Creator { get; set; }
 }

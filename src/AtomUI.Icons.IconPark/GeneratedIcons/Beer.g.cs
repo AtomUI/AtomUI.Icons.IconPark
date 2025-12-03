@@ -1,0 +1,55 @@
+// This code is auto generated. Do not modify.
+// Generated Date: 2025-12-02
+
+using Avalonia;
+using System;
+using Avalonia.Media;
+using AtomUI.Controls;
+using AtomUI.Media;
+namespace AtomUI.Icons.IconPark;
+
+public class Beer : IconParkIcon
+{
+    public Beer()
+    {
+        IconTheme = IconThemeType.Filled;
+        ViewBox = new Rect(0, 0, 48, 48);
+    }
+
+    private static readonly DrawingInstruction[] StaticInstructions = [
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M25.5 19H33C34.1046 19 35 19.8954 35 21V44H13V21C13 19.8954 13.8954 19 15 19H17.5"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            FillBrush = IconBrushType.Fill,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = true,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M17 8H14.5C11.4624 8 9 10.4624 9 13.5C9 16.5376 11.4624 19 14.5 19H19V29.5C19 30.8807 20.1193 32 21.5 32C22.8807 32 24 30.8807 24 29.5V19H33.5C36.5376 19 39 16.5376 39 13.5C39 10.4624 36.5376 8 33.5 8H29C29 8 28 4 23 4C18 4 17 8 17 8Z"),
+        },
+        new PathDrawingInstruction()
+        {
+            Opacity = 1,
+            StrokeBrush = IconBrushType.Stroke,
+            IsStrokeWidthCustomizable = true,
+            IsStrokeLinecapCustomizable = true,
+            IsStrokeLinejoinCustomizable = false,
+            IsStrokeEnabled = true,
+            Data = StreamGeometry.Parse("M35 21H40C41.1046 21 42 21.8954 42 23V28C42 30.2091 40.2091 32 38 32H35"),
+        },
+    ];
+
+    protected override IList<DrawingInstruction> DrawingInstructions => StaticInstructions;
+}
+

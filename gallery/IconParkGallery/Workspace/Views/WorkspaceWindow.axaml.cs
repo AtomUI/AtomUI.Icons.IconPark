@@ -2,12 +2,15 @@ using System.Diagnostics;
 using AtomUI.Controls;
 using AtomUI.Desktop.Controls;
 using AtomUI.Theme.Language;
-using MaterialGallery.Workspace.ViewModels;
+using IconParkGallery.Workspace.ViewModels;
 using Avalonia;
+using Avalonia.Controls.Primitives;
 using Avalonia.Interactivity;
 using Avalonia.Threading;
+using IconParkGallery.Controls;
+using IconParkGallery.Models;
 
-namespace MaterialGallery.Workspace.Views;
+namespace IconParkGallery.Workspace.Views;
 
 internal enum WindowMenuItemKind 
 {
@@ -28,16 +31,65 @@ internal enum WindowMenuItemKind
 public partial class WorkspaceWindow : ReactiveWindow<WorkspaceWindowViewModel>
 {
     public const string LanguageId = nameof(WorkspaceWindow);
+
+    static WorkspaceWindow()
+    {
+        IconInfoItem.ClickedEvent.AddClassHandler<WorkspaceWindow>((window, args) =>
+        {
+            if (args.Source is IconInfoItem iconInfoItem)
+            {
+                window.HandleIconItemClicked(iconInfoItem);
+            }
+        });
+    }
+    
+    private WindowMessageManager? _messageManager;
+    
     public WorkspaceWindow()
     {
 #if DEBUG
         this.AttachDevTools();
 #endif
-        DataContext = new WorkspaceWindowViewModel();
+        var model = new WorkspaceWindowViewModel();
+        DataContext = model;
         InitializeComponent();
         AddHandler(MenuItem.IsCheckStateChangedEvent, HandleMenuItemCheckChanged);
+        _messageManager =  new WindowMessageManager(this);
     }
 
+    private void HandleIconItemClicked(IconInfoItem infoItem)
+    {
+        _messageManager?.Show(
+            new Message(
+                type: MessageType.Success,
+            content:$"<{infoItem.IconName} /> copied 🎉"
+        ));
+        if (Clipboard != null)
+        {
+            Dispatcher.UIThread.InvokeAsync(async () =>
+            {
+                await Clipboard.SetTextAsync(infoItem.IconName);
+            });
+        }
+    }
+
+    protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+    {
+        base.OnApplyTemplate(e);
+        
+        if (DataContext is WorkspaceWindowViewModel viewModel)
+        {
+            viewModel.IconInfoRepository = new IconMetaInfoRepository();
+            InitializeIconsInfos(viewModel);
+        }
+    }
+
+    private void InitializeIconsInfos(WorkspaceWindowViewModel model)
+    {
+        Debug.Assert(model.IconInfoRepository != null);
+        model.Categories = model.IconInfoRepository.Categories;
+    }
+    
     public override void Show()
     {
         base.Show();

@@ -1,0 +1,45 @@
+<ResourceDictionary
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:atom="https://atomui.net"
+    xmlns:gallery="https://atomui.net/icons/iconpark/icons-gallery"
+    x:ClassModifier="internal">
+    <ControlTheme x:Key="{x:Type gallery:Navigation}" TargetType="gallery:Navigation">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Padding="{TemplateBinding Padding}">
+                    <DockPanel VerticalSpacing="5" LastChildFill="True">
+                        <atom:ComboBox Name="{x:Static gallery:NavigationThemeConstants.IconThemeComboBoxPart}"
+                                       DockPanel.Dock="Top"
+                                       HorizontalAlignment="Stretch" SelectedIndex="1"
+                                       Margin="0 0 0 10">
+                            <atom:ComboBoxItem Tag="{x:Static atom:IconThemeType.Outlined}">Outlined</atom:ComboBoxItem>
+                            <atom:ComboBoxItem Tag="{x:Static atom:IconThemeType.Filled}">Filled</atom:ComboBoxItem>
+                            <atom:ComboBoxItem Tag="{x:Static atom:IconThemeType.TwoTone}">Two tone</atom:ComboBoxItem>
+                            <atom:ComboBoxItem Tag="{x:Static atom:IconThemeType.MultiColor}">MultiColor</atom:ComboBoxItem>
+                        </atom:ComboBox>
+                        <TextBlock DockPanel.Dock="Top" FontWeight="Bold">Category:</TextBlock>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                      AllowAutoHide="False"
+                                      BringIntoViewOnFocusChange="False">
+                            <atom:NavMenu Name="{x:Static gallery:NavigationThemeConstants.CategoryNavMenuPart}"
+                                          HorizontalAlignment="Stretch"
+                                          Mode="Inline"
+                                          ItemsSource="{TemplateBinding CategoryMavMenuItems}">
+                                <atom:NavMenu.ItemTemplate>
+                                    <DataTemplate x:DataType="atom:NavMenuItemData">
+                                        <TextBlock Text="{Binding Header}" />
+                                    </DataTemplate>
+                                </atom:NavMenu.ItemTemplate>
+                            </atom:NavMenu>
+                        </ScrollViewer>
+                    </DockPanel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Setter Property="Width" Value="{DynamicResource {x:Static gallery:NavigationTokenKey.PanelWidth}}" />
+        <Setter Property="Padding" Value="{DynamicResource {x:Static atom:SharedTokenKey.PaddingXS}}" />
+
+    </ControlTheme>
+</ResourceDictionary>

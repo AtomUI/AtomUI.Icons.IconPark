@@ -2,14 +2,4 @@
     x:Class="IconParkGallery.BaseGalleryApplication"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Application.Styles>
-        <Styles>
-            <Styles.Resources>
-                <ResourceDictionary>
-                    <ResourceDictionary.MergedDictionaries>
-                    </ResourceDictionary.MergedDictionaries>
-                </ResourceDictionary>
-            </Styles.Resources>
-        </Styles>
-    </Application.Styles>
 </Application>

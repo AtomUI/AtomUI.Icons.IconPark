@@ -8,11 +8,13 @@ namespace AtomUI.Icons.IconPark.Generator;
 
 public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
 {
+    private string _configFilePath;
     public IconParkIconsPackageGenerator(string sourcePath, string targetPath)
         : base(sourcePath, targetPath)
     {
         PackageName              = "IconPark";
         PackageNamespace         = "AtomUI.Icons.IconPark";
+        _configFilePath = Path.Combine(Path.Combine(sourcePath, "source"), "icons-config.json");
     }
     
     public static async Task<int> Main(string[] args)
@@ -27,7 +29,7 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
         }
         catch  (Exception e)
         {
-            Console.Error.WriteLine($"Generate error: {e.Message}");
+            await Console.Error.WriteLineAsync($"Generate error: {e.Message}");
 #if DEBUG
             throw;
 #endif
@@ -35,14 +37,18 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
         }
     }
 
+    protected override void PrepareEnvironment()
+    {
+        base.PrepareEnvironment();
+        if (!File.Exists(_configFilePath))
+        {
+            throw new FileNotFoundException($"config file not found: {_configFilePath}");
+        }
+    }
+
     protected override IEnumerable<IconFileInfo> ScanIconFilesRecursively(string sourcePath)
     {
-        var configFilePath = Path.Combine(Path.Combine(sourcePath, "source"), "icons-config.json");
-        if (!File.Exists(configFilePath))
-        {
-            throw new FileNotFoundException($"config file not found: {configFilePath}");
-        }
-        using var fileStream = File.OpenRead(configFilePath);
+        using var fileStream = File.OpenRead(_configFilePath);
         using var jsonDocument = JsonDocument.Parse(fileStream);
         var iconSvgFilePath = Path.Combine(Path.Combine(Path.Combine(Path.Combine(sourcePath, "packages"), "react"), "src"), "icons");
         foreach (var element in jsonDocument.RootElement.EnumerateArray())
@@ -66,7 +72,7 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
         }
     }
 
-    private string NormalizeIconName(string baseName)
+    private static string NormalizeIconName(string baseName)
     {
         var name = CapitalizeFirstLetter(baseName);
         name = Regex.Replace(name, @"[-_]([a-zA-Z0-9])",
@@ -108,13 +114,13 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
         svgSource = svgSource.Replace("}}", "}");
         svgSource = svgSource.Replace("{", "\"{");
         svgSource = svgSource.Replace("}", "}\"");
-        svgSource = svgSource.Replace("strokeWith", "stroke-width");
+        svgSource = svgSource.Replace("strokeWidth", "stroke-width");
         svgSource = svgSource.Replace("strokeLinecap", "stroke-linecap");
         svgSource = svgSource.Replace("strokeLinejoin", "stroke-linejoin");
         var    svgParsedInfo = SvgParser.Parse(svgSource);
         var    viewBox       = svgParsedInfo.ViewBox;
         var    className     = $"{iconFileInfo.Name}";
-        sourceText.AppendLine($"public class {className} : Icon");
+        sourceText.AppendLine($"public class {className} : IconParkIcon");
         sourceText.AppendLine(@"{");
         sourceText.AppendLine($"    public {className}()");
         sourceText.AppendLine(@"    {");
@@ -123,14 +129,30 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
         sourceText.AppendLine(@"    }");
         sourceText.AppendLine(@"");
         sourceText.AppendLine(@"    private static readonly DrawingInstruction[] StaticInstructions = [");
-        for (var i = 0; i < svgParsedInfo.GraphicElements.Count; i++)
+        var graphicElementCount = svgParsedInfo.GraphicElements.Count;
+        var effectiveGraphicElementCount = graphicElementCount;
+        
+        for (var i = 0; i < graphicElementCount; i++)
         {
             var graphicElement  = svgParsedInfo.GraphicElements[i];
+            if (graphicElement.FillColor == "none")
+            {
+                --effectiveGraphicElementCount;
+            }
+        }
+        
+        for (var i = 0; i < graphicElementCount; i++)
+        {
+            var graphicElement  = svgParsedInfo.GraphicElements[i];
+            if (graphicElement.FillColor == "none")
+            {
+                continue;
+            }
             if (graphicElement is RectElement rectElement)
             {
                 sourceText.AppendLine(@"        new RectDrawingInstruction()");
                 sourceText.AppendLine(@"        {");
-                GenerateCommonCode(rectElement, sourceText);
+                GenerateCommonCode(rectElement, effectiveGraphicElementCount, sourceText);
                 sourceText.AppendLine($"            Rect = new Rect({rectElement.X}, {rectElement.Y}, {rectElement.Width}, {rectElement.Height}),");
                 sourceText.AppendLine($"            RadiusX = {rectElement.RadiusX},");
                 sourceText.AppendLine($"            RadiusY = {rectElement.RadiusY},");
@@ -140,7 +162,7 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
             {
                 sourceText.AppendLine(@"        new CircleDrawingInstruction()");
                 sourceText.AppendLine(@"        {");
-                GenerateCommonCode(circleElement, sourceText);
+                GenerateCommonCode(circleElement, effectiveGraphicElementCount, sourceText);
                 sourceText.AppendLine($"            Center = new Avalonia.Point({circleElement.CenterX}, {circleElement.CenterY}),");
                 sourceText.AppendLine($"            Radius = {circleElement.Radius}");
                 sourceText.AppendLine(@"        },");
@@ -149,7 +171,7 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
             {
                 sourceText.AppendLine(@"        new EllipseDrawingInstruction()");
                 sourceText.AppendLine(@"        {");
-                GenerateCommonCode(ellipseElement, sourceText);
+                GenerateCommonCode(ellipseElement, effectiveGraphicElementCount, sourceText);
                 sourceText.AppendLine($"            Center = new Avalonia.Point({ellipseElement.CenterX}, {ellipseElement.CenterY}),");
                 sourceText.AppendLine($"            RadiusX = {ellipseElement.RadiusX},");
                 sourceText.AppendLine($"            RadiusY = {ellipseElement.RadiusY}");
@@ -159,7 +181,7 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
             {
                 sourceText.AppendLine(@"        new LineDrawingInstruction()");
                 sourceText.AppendLine(@"        {");
-                GenerateCommonCode(lineElement, sourceText);
+                GenerateCommonCode(lineElement, effectiveGraphicElementCount, sourceText);
                 sourceText.AppendLine($"            StartPoint = new Avalonia.Point({lineElement.X1}, {lineElement.Y1}),");
                 sourceText.AppendLine($"            EndPoint = new Avalonia.Point({lineElement.X2}, {lineElement.Y2}),");
                 sourceText.AppendLine(@"        },");
@@ -173,7 +195,7 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
                 }
                 sourceText.AppendLine(@"        new PolygonDrawingInstruction()");
                 sourceText.AppendLine(@"        {");
-                GenerateCommonCode(polygonElement, sourceText);
+                GenerateCommonCode(polygonElement, effectiveGraphicElementCount, sourceText);
                 sourceText.AppendLine($"            Points = [{string.Join(',', points)}]");
                 sourceText.AppendLine(@"        },");
             }
@@ -186,7 +208,7 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
                 }
                 sourceText.AppendLine(@"        new PolylineDrawingInstruction()");
                 sourceText.AppendLine(@"        {");
-                GenerateCommonCode(polylineElement, sourceText);
+                GenerateCommonCode(polylineElement, effectiveGraphicElementCount, sourceText);
                 sourceText.AppendLine($"            Points = [{string.Join(',', points)}]");
                 sourceText.AppendLine(@"        },");
             }
@@ -194,7 +216,7 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
             {
                 sourceText.AppendLine(@"        new PathDrawingInstruction()");
                 sourceText.AppendLine(@"        {");
-                GenerateCommonCode(pathElement, sourceText);
+                GenerateCommonCode(pathElement, effectiveGraphicElementCount, sourceText);
                 sourceText.AppendLine($"            Data = StreamGeometry.Parse(\"{pathElement.Data}\"),");
                 sourceText.AppendLine(@"        },");
             }
@@ -207,8 +229,89 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
         
         await output.WriteAsync(Encoding.UTF8.GetBytes(sourceText.ToString()));
     }
+    
+    protected override async Task GenerateIconPackageClassesAsync()
+    {
+        await base.GenerateIconPackageClassesAsync();
+        await GenerateIconRepositoryClassAsync();
+    }
 
-    private void GenerateCommonCode(SvgGraphicElement graphicElement, StringBuilder output)
+    private async Task GenerateIconRepositoryClassAsync()
+    {
+         var repoClsFilePath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "../../../../gallery/IconParkGallery/Models/IconMetaInfoRepository.g.cs"));
+        if (File.Exists(repoClsFilePath))
+        {
+            File.Delete(repoClsFilePath);
+        }
+        await using var stream = new FileStream(repoClsFilePath, FileMode.Create, FileAccess.Write);
+        var sourceText = new StringBuilder();
+        sourceText.AppendLine("// This code is auto generated. Do not modify.");
+        sourceText.AppendLine($"// Generated Date: {DateTime.Today.ToString("yyyy-MM-dd")}");
+        sourceText.AppendLine("");
+        sourceText.AppendLine("using Avalonia;");
+        sourceText.AppendLine("using System;");
+        sourceText.AppendLine("using Avalonia.Media;");
+        sourceText.AppendLine("using AtomUI.Controls;");
+        sourceText.AppendLine("using AtomUI.Media;");
+        sourceText.AppendLine("using AtomUI.Icons.IconPark;");
+        sourceText.AppendLine($"namespace IconParkGallery.Models;");
+        
+        sourceText.AppendLine("");
+        
+        sourceText.AppendLine($"public partial class IconMetaInfoRepository");
+        sourceText.AppendLine(@"{");
+        sourceText.AppendLine(@"    public IconMetaInfoRepository()");
+        sourceText.AppendLine(@"    {");
+        sourceText.AppendLine(@"        IconInfos = [");
+        
+        await using var fileStream = File.OpenRead(_configFilePath);
+        using var jsonDocument = await JsonDocument.ParseAsync(fileStream);
+        
+        var categorySet = new HashSet<string>();
+        
+        foreach (var element in jsonDocument.RootElement.EnumerateArray())
+        {
+            var item = JsonSerializer.Deserialize<IconMetaInfo>(element.GetRawText(), new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNameCaseInsensitive = true,
+                NumberHandling = JsonNumberHandling.AllowReadingFromString
+            });
+            if (item != null)
+            {
+                categorySet.Add(item.Category);
+                var name = NormalizeIconName(item.Name);
+                var tags = string.Join(',', item.Tags.Select(tag => $"\"{tag}\"").ToList());
+                var rtl = item.Rtl ? "true" : "false";
+                sourceText.AppendLine(@"            new IconMetaInfo() {");
+                sourceText.AppendLine($"                Id = {item.Id},");
+                sourceText.AppendLine($"                Title = \"{item.Title.Trim()}\",");
+                sourceText.AppendLine($"                Name = \"{name}\",");
+                sourceText.AppendLine($"                Author = \"{item.Author}\",");
+                sourceText.AppendLine($"                Category = \"{item.Category}\",");
+                sourceText.AppendLine($"                CategoryCN = \"{item.CategoryCN}\",");
+                sourceText.AppendLine($"                Tags = [{tags}],");
+                sourceText.AppendLine($"                Rtl = {rtl},");
+                sourceText.AppendLine($"                IconType = typeof(AtomUI.Icons.IconPark.{name}),");
+                sourceText.AppendLine($"                Creator = () => new AtomUI.Icons.IconPark.{name}()");
+                sourceText.AppendLine(@"            },");
+            }
+        }
+        
+        sourceText.AppendLine(@"        ];");
+        var categories = categorySet.OrderBy(x => x);
+        sourceText.AppendLine(@"        Categories = [");
+        foreach (var category in categories)
+        {
+            sourceText.AppendLine($"            \"{category}\",");
+        }
+        sourceText.AppendLine(@"        ];");
+        sourceText.AppendLine(@"    }");
+        sourceText.AppendLine(@"}");
+        await stream.WriteAsync(Encoding.UTF8.GetBytes(sourceText.ToString()));
+    }
+
+    private void GenerateCommonCode(SvgGraphicElement graphicElement, int graphicElementCount, StringBuilder output)
     {
         output.AppendLine($"            Opacity = {graphicElement.Opacity},");
         if (!string.IsNullOrEmpty(graphicElement.Transform))

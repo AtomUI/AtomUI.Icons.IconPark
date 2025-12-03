@@ -3,7 +3,7 @@ using Avalonia.Media;
 using IconParkGallery.Desktop;
 using ReactiveUI.Avalonia;
 
-namespace MaterialGallery.Desktop;
+namespace IconParkGallery.Desktop;
 
 internal class Program
 {
@@ -32,7 +32,7 @@ internal class Program
     private static void LogException(Exception ex)
     {
         var homeDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        var logDirectory = Path.Combine(homeDirectory, Path.Combine("MaterialGallery", "AppCrashLogs"));
+        var logDirectory = Path.Combine(homeDirectory, Path.Combine("IconParkGallery", "AppCrashLogs"));
         Directory.CreateDirectory(logDirectory);
             
         var logFileName = $"CrashLog_{DateTime.Now:yyyyMMdd_HHmmss}.log";
