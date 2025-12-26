@@ -8,9 +8,9 @@ namespace IconParkGallery.Workspace.Views
 {
     partial class WorkspaceWindow
     {
-        [global::System.CodeDom.Compiler.GeneratedCode("Avalonia.Generators.NameGenerator.InitializeComponentCodeGenerator", "11.3.9.0")]
+        [global::System.CodeDom.Compiler.GeneratedCode("Avalonia.Generators.NameGenerator.InitializeComponentCodeGenerator", "11.3.10.0")]
         internal global::IconParkGallery.Controls.Navigation Navigation;
-        [global::System.CodeDom.Compiler.GeneratedCode("Avalonia.Generators.NameGenerator.InitializeComponentCodeGenerator", "11.3.9.0")]
+        [global::System.CodeDom.Compiler.GeneratedCode("Avalonia.Generators.NameGenerator.InitializeComponentCodeGenerator", "11.3.10.0")]
         internal global::IconParkGallery.Controls.IconGallery Gallery;
 
         /// <summary>
@@ -19,7 +19,7 @@ namespace IconParkGallery.Workspace.Views
         /// <param name="loadXaml">Should the XAML be loaded into the component.</param>
         /// <param name="attachDevTools">Should the dev tools be attached.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCode("Avalonia.Generators.NameGenerator.InitializeComponentCodeGenerator", "11.3.9.0")]
+        [global::System.CodeDom.Compiler.GeneratedCode("Avalonia.Generators.NameGenerator.InitializeComponentCodeGenerator", "11.3.10.0")]
         [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
         public void InitializeComponent(bool loadXaml = true, bool attachDevTools = true)
         {

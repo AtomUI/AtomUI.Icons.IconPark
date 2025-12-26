@@ -66,7 +66,6 @@ public class IconGallery : TemplatedControl, IControlSharedTokenResourcesHost, I
 
     Control IControlSharedTokenResourcesHost.HostControl => this;
     string IControlSharedTokenResourcesHost.TokenId => IconGalleryToken.ID;
-    Control IMotionAwareControl.PropertyBindTarget => this;
     #endregion
     
     private CompositeDisposable? _disposables;

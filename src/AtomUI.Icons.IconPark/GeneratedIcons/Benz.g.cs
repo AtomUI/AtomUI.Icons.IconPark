@@ -1,5 +1,5 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-02
+// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -14,11 +14,6 @@ public class Benz : IconParkIcon
     {
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
-    }
-
-    public override void Render(DrawingContext context)
-    {
-        base.Render(context);
     }
 
     private static readonly DrawingInstruction[] StaticInstructions = [
