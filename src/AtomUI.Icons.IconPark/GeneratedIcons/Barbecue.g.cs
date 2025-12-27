@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -28,7 +27,7 @@ public class Barbecue : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(12, 4, 8, 8),
             RadiusX = 4,
-            RadiusY = 0,
+            RadiusY = 4,
         },
         new RectDrawingInstruction()
         {
@@ -41,7 +40,7 @@ public class Barbecue : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(12, 22, 8, 8),
             RadiusX = 4,
-            RadiusY = 0,
+            RadiusY = 4,
         },
         new LineDrawingInstruction()
         {
@@ -65,7 +64,7 @@ public class Barbecue : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(28, 4, 8, 8),
             RadiusX = 4,
-            RadiusY = 0,
+            RadiusY = 4,
         },
         new RectDrawingInstruction()
         {
@@ -78,7 +77,7 @@ public class Barbecue : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(28, 22, 8, 8),
             RadiusX = 4,
-            RadiusY = 0,
+            RadiusY = 4,
         },
         new LineDrawingInstruction()
         {

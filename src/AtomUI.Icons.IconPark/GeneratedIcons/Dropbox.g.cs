@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -77,18 +76,6 @@ public class Dropbox : IconParkIcon
             IsStrokeLinejoinCustomizable = true,
             IsStrokeEnabled = true,
             Data = StreamGeometry.Parse("M36 28V37L24 44L12 37V28"),
-        },
-        new RectDrawingInstruction()
-        {
-            Opacity = 1,
-            FillBrush = IconBrushType.SecondaryStroke,
-            IsStrokeWidthCustomizable = false,
-            IsStrokeLinecapCustomizable = false,
-            IsStrokeLinejoinCustomizable = false,
-            IsStrokeEnabled = false,
-            Rect = new Rect(0, 0, 48, 48),
-            RadiusX = 0,
-            RadiusY = 0,
         },
     ];
 

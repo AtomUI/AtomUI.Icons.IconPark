@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -59,18 +58,6 @@ public class DataFour : IconParkIcon
             IsStrokeLinejoinCustomizable = true,
             IsStrokeEnabled = true,
             Data = StreamGeometry.Parse("M10.7709 33.5C6.61878 34.5994 4 36.208 4 38C4 41.3137 12.9543 44 24 44C35.0457 44 44 41.3137 44 38C44 36.208 41.3812 34.5994 37.2291 33.5C33.7035 34.4335 29.0722 35 24 35C18.9278 35 14.2965 34.4335 10.7709 33.5Z"),
-        },
-        new RectDrawingInstruction()
-        {
-            Opacity = 1,
-            FillBrush = IconBrushType.SecondaryStroke,
-            IsStrokeWidthCustomizable = false,
-            IsStrokeLinecapCustomizable = false,
-            IsStrokeLinejoinCustomizable = false,
-            IsStrokeEnabled = false,
-            Rect = new Rect(0, 0, 48, 48),
-            RadiusX = 0,
-            RadiusY = 0,
         },
     ];
 

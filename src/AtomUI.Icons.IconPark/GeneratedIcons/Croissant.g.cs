@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -66,18 +65,6 @@ public class Croissant : IconParkIcon
             IsStrokeLinejoinCustomizable = false,
             IsStrokeEnabled = true,
             Data = StreamGeometry.Parse("M13.4109 23.0785C11.7746 21.9096 11.331 19.6654 12.3934 17.9581V17.9581C13.9429 15.468 16.0518 13.364 18.5473 11.8232V11.8232C20.2199 10.7906 22.4039 11.204 23.5833 12.7765L29.5153 20.6858C30.8737 22.497 30.4595 25.0736 28.6019 26.3678L28.3619 26.535C28.061 26.7447 27.7903 26.9947 27.5575 27.2781L26.874 28.1103C25.5382 29.7366 23.1706 30.0497 21.4581 28.8264L13.4109 23.0785Z"),
-        },
-        new RectDrawingInstruction()
-        {
-            Opacity = 1,
-            FillBrush = IconBrushType.SecondaryStroke,
-            IsStrokeWidthCustomizable = false,
-            IsStrokeLinecapCustomizable = false,
-            IsStrokeLinejoinCustomizable = false,
-            IsStrokeEnabled = false,
-            Rect = new Rect(0, 0, 48, 48),
-            RadiusX = 0,
-            RadiusY = 0,
         },
     ];
 

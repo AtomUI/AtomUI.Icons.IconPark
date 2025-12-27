@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -29,7 +28,7 @@ public class Tray : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(24.7617, 3.24268, 28, 30),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new PathDrawingInstruction()
         {
@@ -70,18 +69,6 @@ public class Tray : IconParkIcon
             IsStrokeLinejoinCustomizable = true,
             IsStrokeEnabled = true,
             Data = StreamGeometry.Parse("M28 27H30"),
-        },
-        new RectDrawingInstruction()
-        {
-            Opacity = 1,
-            FillBrush = IconBrushType.SecondaryStroke,
-            IsStrokeWidthCustomizable = false,
-            IsStrokeLinecapCustomizable = false,
-            IsStrokeLinejoinCustomizable = false,
-            IsStrokeEnabled = false,
-            Rect = new Rect(0, 0, 48, 48),
-            RadiusX = 0,
-            RadiusY = 0,
         },
     ];
 

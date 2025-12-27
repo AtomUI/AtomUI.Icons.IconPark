@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -29,7 +28,7 @@ public class HeaterResistor : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(9.8584, 29.6567, 28, 12),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new PathDrawingInstruction()
         {

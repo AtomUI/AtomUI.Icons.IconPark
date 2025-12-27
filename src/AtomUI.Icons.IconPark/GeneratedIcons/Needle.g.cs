@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -77,18 +76,6 @@ public class Needle : IconParkIcon
             IsStrokeLinejoinCustomizable = true,
             IsStrokeEnabled = true,
             Data = StreamGeometry.Parse("M27.9999 12.0001L11.9999 27.9998L10.9999 37L19.9999 35.9998L35.9999 20.0001L27.9999 12.0001Z"),
-        },
-        new RectDrawingInstruction()
-        {
-            Opacity = 1,
-            FillBrush = IconBrushType.SecondaryStroke,
-            IsStrokeWidthCustomizable = false,
-            IsStrokeLinecapCustomizable = false,
-            IsStrokeLinejoinCustomizable = false,
-            IsStrokeEnabled = false,
-            Rect = new Rect(0, 0, 48, 48),
-            RadiusX = 0,
-            RadiusY = 0,
         },
     ];
 

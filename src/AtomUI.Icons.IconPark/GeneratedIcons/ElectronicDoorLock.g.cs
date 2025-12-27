@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -27,7 +26,7 @@ public class ElectronicDoorLock : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(6, 4, 26, 40),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {
@@ -40,7 +39,7 @@ public class ElectronicDoorLock : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(20, 30, 24, 8),
             RadiusX = 4,
-            RadiusY = 0,
+            RadiusY = 4,
         },
         new CircleDrawingInstruction()
         {

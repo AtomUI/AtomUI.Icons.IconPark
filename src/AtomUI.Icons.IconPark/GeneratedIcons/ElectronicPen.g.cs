@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -29,7 +28,7 @@ public class ElectronicPen : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(35.1926, 5.32227, 12, 38),
             RadiusX = 6,
-            RadiusY = 0,
+            RadiusY = 6,
         },
         new PathDrawingInstruction()
         {
@@ -62,19 +61,7 @@ public class ElectronicPen : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(33.2681, 12.3396, 4, 4),
             RadiusX = 2,
-            RadiusY = 0,
-        },
-        new RectDrawingInstruction()
-        {
-            Opacity = 1,
-            FillBrush = IconBrushType.SecondaryStroke,
-            IsStrokeWidthCustomizable = false,
-            IsStrokeLinecapCustomizable = false,
-            IsStrokeLinejoinCustomizable = false,
-            IsStrokeEnabled = false,
-            Rect = new Rect(0, 0, 48, 48),
-            RadiusX = 0,
-            RadiusY = 0,
+            RadiusY = 2,
         },
     ];
 

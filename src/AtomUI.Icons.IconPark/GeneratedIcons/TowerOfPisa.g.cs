@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -98,7 +97,7 @@ public class TowerOfPisa : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(25.1826, 4.38721, 10, 4),
             RadiusX = 1,
-            RadiusY = 0,
+            RadiusY = 1,
         },
         new PathDrawingInstruction()
         {
@@ -109,18 +108,6 @@ public class TowerOfPisa : IconParkIcon
             IsStrokeLinejoinCustomizable = false,
             IsStrokeEnabled = true,
             Data = StreamGeometry.Parse("M19.4823 42.9316L20.5176 39.0679"),
-        },
-        new RectDrawingInstruction()
-        {
-            Opacity = 1,
-            FillBrush = IconBrushType.SecondaryStroke,
-            IsStrokeWidthCustomizable = false,
-            IsStrokeLinecapCustomizable = false,
-            IsStrokeLinejoinCustomizable = false,
-            IsStrokeEnabled = false,
-            Rect = new Rect(0, 0, 48, 48),
-            RadiusX = 0,
-            RadiusY = 0,
         },
     ];
 

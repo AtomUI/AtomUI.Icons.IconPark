@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -28,7 +27,7 @@ public class Merge : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(4, 24, 20, 22),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {
@@ -41,7 +40,7 @@ public class Merge : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(16, 24, 20, 20),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
     ];
 

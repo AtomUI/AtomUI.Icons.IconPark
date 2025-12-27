@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -39,7 +38,7 @@ public class PassportOne : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(13, 44, 34, 28),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new CircleDrawingInstruction()
         {

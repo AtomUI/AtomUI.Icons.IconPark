@@ -9,7 +9,6 @@
 
     <ItemGroup>
         <PackageReference Include="AtomUI.Core" />
-        <PackageReference Include="System.Text.Json" />
     </ItemGroup>
 
 </Project>

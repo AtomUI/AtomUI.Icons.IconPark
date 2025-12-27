@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -28,7 +27,7 @@ public class Spoon : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(14, 4, 20, 20),
             RadiusX = 10,
-            RadiusY = 0,
+            RadiusY = 10,
         },
         new PathDrawingInstruction()
         {
@@ -51,7 +50,7 @@ public class Spoon : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(21, 36, 6, 8),
             RadiusX = 3,
-            RadiusY = 0,
+            RadiusY = 3,
         },
     ];
 

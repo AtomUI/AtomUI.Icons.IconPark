@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -59,7 +58,7 @@ public class Seal : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(15, 4, 18, 10.8),
             RadiusX = 5.4,
-            RadiusY = 0,
+            RadiusY = 5.4,
         },
     ];
 

@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -28,7 +27,7 @@ public class Perfume : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(16, 4, 16, 10),
             RadiusX = 3,
-            RadiusY = 0,
+            RadiusY = 3,
         },
         new RectDrawingInstruction()
         {
@@ -40,7 +39,7 @@ public class Perfume : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(6, 20, 36, 24),
             RadiusX = 12,
-            RadiusY = 0,
+            RadiusY = 12,
         },
         new PathDrawingInstruction()
         {

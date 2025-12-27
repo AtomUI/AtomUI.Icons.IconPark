@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -27,7 +26,7 @@ public class Phonograph : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(6, 6, 36, 36),
             RadiusX = 3,
-            RadiusY = 0,
+            RadiusY = 3,
         },
         new CircleDrawingInstruction()
         {
@@ -51,7 +50,7 @@ public class Phonograph : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(22, 23, 4, 4),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {
@@ -63,7 +62,7 @@ public class Phonograph : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(34, 34, 4, 4),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new PathDrawingInstruction()
         {

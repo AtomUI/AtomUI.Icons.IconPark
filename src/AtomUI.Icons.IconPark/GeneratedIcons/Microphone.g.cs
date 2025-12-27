@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -27,7 +26,7 @@ public class Microphone : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(16, 4, 16, 28),
             RadiusX = 8,
-            RadiusY = 0,
+            RadiusY = 8,
         },
         new PathDrawingInstruction()
         {

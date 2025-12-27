@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -53,7 +52,7 @@ public class MemoryOne : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(11, 11, 4, 4),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {
@@ -65,7 +64,7 @@ public class MemoryOne : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(11, 33, 4, 4),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {
@@ -77,7 +76,7 @@ public class MemoryOne : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(19, 11, 4, 4),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {
@@ -89,7 +88,7 @@ public class MemoryOne : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(19, 33, 4, 4),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new PathDrawingInstruction()
         {

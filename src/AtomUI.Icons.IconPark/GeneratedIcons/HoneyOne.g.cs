@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -28,7 +27,7 @@ public class HoneyOne : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(4.92871, 13.2239, 11, 5),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {
@@ -41,7 +40,7 @@ public class HoneyOne : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(19.3213, 27.1108, 11, 5),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {
@@ -54,7 +53,7 @@ public class HoneyOne : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(6.44336, 18.8545, 17, 5),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {
@@ -67,7 +66,7 @@ public class HoneyOne : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(13.6406, 25.7981, 17, 5),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {
@@ -80,7 +79,7 @@ public class HoneyOne : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(7.26465, 25.2048, 25, 5),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new PathDrawingInstruction()
         {

@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -28,7 +27,7 @@ public class ZeroKey : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(6, 6, 36, 36),
             RadiusX = 3,
-            RadiusY = 0,
+            RadiusY = 3,
         },
         new RectDrawingInstruction()
         {
@@ -41,7 +40,7 @@ public class ZeroKey : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(19, 14, 10, 20),
             RadiusX = 5,
-            RadiusY = 0,
+            RadiusY = 5,
         },
     ];
 

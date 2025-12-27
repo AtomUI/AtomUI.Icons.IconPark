@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -47,18 +46,6 @@ public class Pacifier : IconParkIcon
             IsStrokeLinejoinCustomizable = true,
             IsStrokeEnabled = true,
             Data = StreamGeometry.Parse("M19.3197 21.8847C15.9285 20.8969 12.117 21.74 9.44302 24.4139C5.53778 28.3192 5.53778 34.6508 9.44302 38.556C13.3483 42.4613 19.6799 42.4613 23.5852 38.556C26.2591 35.8821 27.1022 32.0706 26.1144 28.6793"),
-        },
-        new RectDrawingInstruction()
-        {
-            Opacity = 1,
-            FillBrush = IconBrushType.SecondaryStroke,
-            IsStrokeWidthCustomizable = false,
-            IsStrokeLinecapCustomizable = false,
-            IsStrokeLinejoinCustomizable = false,
-            IsStrokeEnabled = false,
-            Rect = new Rect(0, 0, 48, 48),
-            RadiusX = 0,
-            RadiusY = 0,
         },
     ];
 

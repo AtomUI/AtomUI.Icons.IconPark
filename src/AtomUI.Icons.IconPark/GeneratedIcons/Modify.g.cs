@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -49,7 +48,7 @@ public class Modify : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(34.6064, 4.9082, 12, 42),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new CircleDrawingInstruction()
         {

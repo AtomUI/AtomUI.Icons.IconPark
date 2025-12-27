@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -38,7 +37,7 @@ public class City : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(8, 26, 8, 16),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new PathDrawingInstruction()
         {
@@ -61,7 +60,7 @@ public class City : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(16, 4, 24, 38),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {

@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -27,7 +26,7 @@ public class GameConsoleOne : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(10, 4, 28, 40),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {
@@ -72,7 +71,7 @@ public class GameConsoleOne : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(27, 33, 4, 4),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {
@@ -84,7 +83,7 @@ public class GameConsoleOne : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(30, 26, 4, 4),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
     ];
 

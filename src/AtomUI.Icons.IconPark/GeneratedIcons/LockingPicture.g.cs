@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -58,7 +57,7 @@ public class LockingPicture : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(30, 12, 12, 8),
             RadiusX = 3,
-            RadiusY = 0,
+            RadiusY = 3,
         },
         new PathDrawingInstruction()
         {

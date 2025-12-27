@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -59,7 +58,7 @@ public class AirplaneWindowOne : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(6, 4, 10, 20),
             RadiusX = 5,
-            RadiusY = 0,
+            RadiusY = 5,
         },
         new PathDrawingInstruction()
         {

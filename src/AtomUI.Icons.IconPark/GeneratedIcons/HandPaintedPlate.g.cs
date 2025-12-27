@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -68,7 +67,7 @@ public class HandPaintedPlate : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(9, 25, 4, 4),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new RectDrawingInstruction()
         {
@@ -80,7 +79,7 @@ public class HandPaintedPlate : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(9, 31, 4, 4),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
     ];
 

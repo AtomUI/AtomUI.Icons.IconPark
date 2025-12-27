@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -68,7 +67,7 @@ public class TreadmillTwo : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(4, 31, 40, 8),
             RadiusX = 4,
-            RadiusY = 0,
+            RadiusY = 4,
         },
     ];
 

@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -28,7 +27,7 @@ public class Direction : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(6.00049, 6, 36, 36),
             RadiusX = 3,
-            RadiusY = 0,
+            RadiusY = 3,
         },
         new PathDrawingInstruction()
         {
@@ -69,18 +68,6 @@ public class Direction : IconParkIcon
             IsStrokeLinejoinCustomizable = false,
             IsStrokeEnabled = false,
             Data = StreamGeometry.Parse("M37.4351 23.293L34.1925 20.0504C33.5625 19.4204 32.4854 19.8666 32.4854 20.7575V27.2428C32.4854 28.1337 33.5625 28.5798 34.1925 27.9499L37.4351 24.7072C37.8256 24.3167 37.8256 23.6835 37.4351 23.293Z"),
-        },
-        new RectDrawingInstruction()
-        {
-            Opacity = 1,
-            FillBrush = IconBrushType.SecondaryStroke,
-            IsStrokeWidthCustomizable = false,
-            IsStrokeLinecapCustomizable = false,
-            IsStrokeLinejoinCustomizable = false,
-            IsStrokeEnabled = false,
-            Rect = new Rect(0, 0, 48, 48),
-            RadiusX = 0,
-            RadiusY = 0,
         },
     ];
 

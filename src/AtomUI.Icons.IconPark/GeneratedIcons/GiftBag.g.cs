@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -27,7 +26,7 @@ public class GiftBag : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(6, 14, 36, 28),
             RadiusX = 3,
-            RadiusY = 0,
+            RadiusY = 3,
         },
         new PathDrawingInstruction()
         {

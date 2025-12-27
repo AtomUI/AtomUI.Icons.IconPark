@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -79,7 +78,7 @@ public class DizzyFace : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(20, 28, 8, 8),
             RadiusX = 4,
-            RadiusY = 0,
+            RadiusY = 4,
         },
     ];
 

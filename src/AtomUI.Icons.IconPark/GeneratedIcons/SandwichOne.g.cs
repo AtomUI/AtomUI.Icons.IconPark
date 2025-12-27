@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -49,7 +48,7 @@ public class SandwichOne : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(5.07129, 33.0713, 40, 14),
             RadiusX = 7,
-            RadiusY = 0,
+            RadiusY = 7,
         },
         new PathDrawingInstruction()
         {
@@ -60,18 +59,6 @@ public class SandwichOne : IconParkIcon
             IsStrokeLinejoinCustomizable = true,
             IsStrokeEnabled = true,
             Data = StreamGeometry.Parse("M15.6779 33.7785L16.2406 32.0902C16.7822 30.4655 17.9928 29.1498 19.567 28.4752L19.9866 28.2953C21.2939 27.7351 22.2992 26.6425 22.749 25.2932V25.2932C23.1987 23.9439 24.204 22.8513 25.5113 22.291L26.4608 21.8841C27.698 21.3539 28.6493 20.32 29.075 19.0431V19.0431C29.544 17.636 30.6481 16.5319 32.0552 16.0629L34.0627 15.3937"),
-        },
-        new RectDrawingInstruction()
-        {
-            Opacity = 1,
-            FillBrush = IconBrushType.SecondaryStroke,
-            IsStrokeWidthCustomizable = false,
-            IsStrokeLinecapCustomizable = false,
-            IsStrokeLinejoinCustomizable = false,
-            IsStrokeEnabled = false,
-            Rect = new Rect(0, 0, 48, 48),
-            RadiusX = 0,
-            RadiusY = 0,
         },
     ];
 

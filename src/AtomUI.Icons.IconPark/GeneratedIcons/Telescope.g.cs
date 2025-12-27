@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -27,7 +26,7 @@ public class Telescope : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(6, 5, 12, 38),
             RadiusX = 6,
-            RadiusY = 0,
+            RadiusY = 6,
         },
         new RectDrawingInstruction()
         {
@@ -39,7 +38,7 @@ public class Telescope : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(30, 5, 12, 38),
             RadiusX = 6,
-            RadiusY = 0,
+            RadiusY = 6,
         },
         new PathDrawingInstruction()
         {

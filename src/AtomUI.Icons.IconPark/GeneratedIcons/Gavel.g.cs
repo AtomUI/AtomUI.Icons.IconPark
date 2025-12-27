@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -64,7 +63,7 @@ public class Gavel : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(21, 4, 14, 6),
             RadiusX = 3,
-            RadiusY = 0,
+            RadiusY = 3,
         },
         new RectDrawingInstruction()
         {
@@ -78,7 +77,7 @@ public class Gavel : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(13, 17.8564, 14, 6),
             RadiusX = 3,
-            RadiusY = 0,
+            RadiusY = 3,
         },
     ];
 

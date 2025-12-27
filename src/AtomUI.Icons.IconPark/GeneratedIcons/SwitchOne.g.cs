@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -41,7 +40,7 @@ public class SwitchOne : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(36.0063, 19.3335, 10.5189, 24.0125),
             RadiusX = 5.25944,
-            RadiusY = 0,
+            RadiusY = 5.25944,
         },
         new RectDrawingInstruction()
         {
@@ -54,7 +53,7 @@ public class SwitchOne : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(36.0063, 29.8525, 10, 10),
             RadiusX = 5,
-            RadiusY = 0,
+            RadiusY = 5,
         },
     ];
 

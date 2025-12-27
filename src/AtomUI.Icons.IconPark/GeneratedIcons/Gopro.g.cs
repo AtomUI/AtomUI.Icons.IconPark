@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -40,7 +39,7 @@ public class Gopro : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(24, 13, 19, 22),
             RadiusX = 3,
-            RadiusY = 0,
+            RadiusY = 3,
         },
         new CircleDrawingInstruction()
         {
@@ -74,7 +73,7 @@ public class Gopro : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(9, 15, 5, 5),
             RadiusX = 2.5,
-            RadiusY = 0,
+            RadiusY = 2.5,
         },
     ];
 

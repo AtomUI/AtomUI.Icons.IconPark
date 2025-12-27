@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -48,7 +47,7 @@ public class Fingernail : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(18, 13, 12, 24),
             RadiusX = 6,
-            RadiusY = 0,
+            RadiusY = 6,
         },
         new PathDrawingInstruction()
         {

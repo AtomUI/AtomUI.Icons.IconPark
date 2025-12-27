@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -47,18 +46,6 @@ public class Sperm : IconParkIcon
             IsStrokeLinejoinCustomizable = false,
             IsStrokeEnabled = true,
             Data = StreamGeometry.Parse("M12.2386 31.2274C9.14181 34.6146 8.57222 37.7734 10.5299 40.7039C13.4663 45.0997 19.2838 44.8594 22.124 41.5828C24.9642 38.3062 30.3082 30.1868 36.183 31.8559C42.0578 33.525 41.0605 39.9438 37.122 40.6182"),
-        },
-        new RectDrawingInstruction()
-        {
-            Opacity = 1,
-            FillBrush = IconBrushType.SecondaryStroke,
-            IsStrokeWidthCustomizable = false,
-            IsStrokeLinecapCustomizable = false,
-            IsStrokeLinejoinCustomizable = false,
-            IsStrokeEnabled = false,
-            Rect = new Rect(0, 0, 48, 48),
-            RadiusX = 0,
-            RadiusY = 0,
         },
     ];
 

@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -29,7 +28,7 @@ public class RefreshOne : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(17, 24.071, 10, 10),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new PathDrawingInstruction()
         {

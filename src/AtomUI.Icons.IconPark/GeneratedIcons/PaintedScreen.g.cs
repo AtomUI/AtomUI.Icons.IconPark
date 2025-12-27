@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -28,7 +27,7 @@ public class PaintedScreen : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(5, 10, 38, 28),
             RadiusX = 3,
-            RadiusY = 0,
+            RadiusY = 3,
         },
         new PathDrawingInstruction()
         {
@@ -51,7 +50,7 @@ public class PaintedScreen : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(15, 29, 4, 4),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
     ];
 

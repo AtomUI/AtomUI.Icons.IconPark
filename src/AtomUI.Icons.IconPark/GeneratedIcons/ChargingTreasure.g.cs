@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -38,7 +37,7 @@ public class ChargingTreasure : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(6, 30, 36, 12),
             RadiusX = 6,
-            RadiusY = 0,
+            RadiusY = 6,
         },
         new RectDrawingInstruction()
         {
@@ -50,7 +49,7 @@ public class ChargingTreasure : IconParkIcon
             IsStrokeEnabled = false,
             Rect = new Rect(19, 34, 4, 4),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
         new PathDrawingInstruction()
         {

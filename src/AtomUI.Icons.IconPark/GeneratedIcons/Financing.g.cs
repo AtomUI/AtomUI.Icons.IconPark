@@ -1,5 +1,4 @@
 // This code is auto generated. Do not modify.
-// Generated Date: 2025-12-26
 
 using Avalonia;
 using System;
@@ -40,7 +39,7 @@ public class Financing : IconParkIcon
             IsStrokeEnabled = true,
             Rect = new Rect(24, 16.9287, 10, 10),
             RadiusX = 2,
-            RadiusY = 0,
+            RadiusY = 2,
         },
     ];
 
