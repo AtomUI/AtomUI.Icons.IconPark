@@ -12,6 +12,7 @@ using Avalonia.Interactivity;
 using IconParkGallery.Controls.Themes;
 using IconParkGallery.Models;
 using Control = Avalonia.Controls.Control;
+using ScrollViewer = AtomUI.Desktop.Controls.ScrollViewer;
 
 namespace IconParkGallery.Controls;
 

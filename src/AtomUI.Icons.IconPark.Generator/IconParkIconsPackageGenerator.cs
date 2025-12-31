@@ -380,4 +380,24 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
             _ => IconBrushType.Fallback
         };
     }
+    
+    protected override async Task GenerateIconPackageKindAsync()
+    {
+        await using var output = new FileStream(Path.Combine(GeneratedIconsPath, $"{PackageName}IconKind.g.cs"), FileMode.Create, FileAccess.Write);
+        var sourceText  = new StringBuilder();
+        sourceText.AppendLine("///");
+        sourceText.AppendLine("/// This code is auto generated. Do not amend.");
+        sourceText.AppendLine("///");
+        sourceText.AppendLine($"namespace {PackageNamespace};");
+        sourceText.AppendLine($"public enum {PackageName}IconKind");
+        sourceText.AppendLine("{");
+        for (var i = 0; i < IconFiles.Count; ++i)
+        {
+            var info = IconFiles[i];
+            sourceText.AppendLine($"    {info.Name} = {i + 1},");
+        }
+        
+        sourceText.AppendLine("}");
+        await output.WriteAsync(Encoding.UTF8.GetBytes(sourceText.ToString()));
+    }
 }

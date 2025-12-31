@@ -23,7 +23,6 @@
                                       AllowAutoHide="False"
                                       BringIntoViewOnFocusChange="False">
                             <atom:NavMenu Name="{x:Static gallery:NavigationThemeConstants.CategoryNavMenuPart}"
-                                          HorizontalAlignment="Stretch"
                                           Mode="Inline"
                                           ItemsSource="{TemplateBinding CategoryMavMenuItems}">
                                 <atom:NavMenu.ItemTemplate>
@@ -37,6 +36,10 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+        
+        <Style Selector="^ /template/ atom|NavMenu#PART_CategoryNavMenu[Mode=Inline]">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
 
         <Setter Property="Width" Value="{DynamicResource {x:Static gallery:NavigationTokenKey.PanelWidth}}" />
         <Setter Property="Padding" Value="{DynamicResource {x:Static atom:SharedTokenKey.PaddingXS}}" />

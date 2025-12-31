@@ -10,6 +10,7 @@
              IsPinCaptionButtonEnabled="True"
              WindowState="Normal"
              WindowStartupLocation="CenterScreen"
+             xmlns:iconpark="https://atomui.net/icons/iconpark"
              Height="900"
              Width="1300">
     <atom:Window.Logo>
