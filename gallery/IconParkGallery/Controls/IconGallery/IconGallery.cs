@@ -11,13 +11,14 @@ using Avalonia.Controls.Primitives;
 using Avalonia.Interactivity;
 using IconParkGallery.Controls.Themes;
 using IconParkGallery.Models;
-using Control = Avalonia.Controls.Control;
 using ScrollViewer = AtomUI.Desktop.Controls.ScrollViewer;
 
 namespace IconParkGallery.Controls;
 
-public class IconGallery : TemplatedControl, IControlSharedTokenResourcesHost, IMotionAwareControl
+public class IconGallery : TemplatedControl, IMotionAwareControl
 {
+    private const double LoadMoreScrollThreshold = 240;
+
     public static readonly StyledProperty<string?> CategoryProperty = 
         AvaloniaProperty.Register<IconGallery, string?>(nameof (Category));
     
@@ -63,20 +64,13 @@ public class IconGallery : TemplatedControl, IControlSharedTokenResourcesHost, I
         set => SetValue(IsMotionEnabledProperty, value);
     }
     
-    #region 内部属性定义
-
-    Control IControlSharedTokenResourcesHost.HostControl => this;
-    string IControlSharedTokenResourcesHost.TokenId => IconGalleryToken.ID;
-    #endregion
-    
     private CompositeDisposable? _disposables;
-    private CompositeDisposable? _iconThemedisposables;
     private ScrollViewer? _scrollViewer;
     private SearchEdit? _searchEdit;
     
     public IconGallery()
     {
-        this.RegisterResources();
+        this.RegisterTokenResourceScope(IconGalleryToken.ScopeProvider);
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
@@ -92,24 +86,6 @@ public class IconGallery : TemplatedControl, IControlSharedTokenResourcesHost, I
             {
                 _scrollViewer.Offset = new Vector(0, 0);
             }
-
-            HandleIconInfosChanged();
-        }
-    }
-
-    private void HandleIconInfosChanged()
-    {
-        _iconThemedisposables?.Dispose();
-        _iconThemedisposables = new CompositeDisposable();
-        if (IconInfos != null)
-        {
-            foreach (var iconInfo in IconInfos)
-            {
-                if (iconInfo.Icon != null)
-                {
-                    _iconThemedisposables.Add(BindUtils.RelayBind(this, IconThemeProperty, iconInfo.Icon, Icon.IconThemeProperty));
-                }
-            }
         }
     }
 
@@ -120,18 +96,47 @@ public class IconGallery : TemplatedControl, IControlSharedTokenResourcesHost, I
         {
             _disposables = new CompositeDisposable();
             _disposables.Add(BindUtils.RelayBind(this, CategoryProperty, IconInfoRepository, IconMetaInfoRepository.CategoryProperty));
+            _disposables.Add(BindUtils.RelayBind(this, IconThemeProperty, IconInfoRepository, IconMetaInfoRepository.IconThemeProperty));
             _disposables.Add(BindUtils.RelayBind(IconInfoRepository, IconMetaInfoRepository.ActivatedIconInfosProperty, this, IconInfosProperty));
+            IconInfoRepository.RefreshIconInfos();
         }
     }
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
     {
         base.OnApplyTemplate(e);
+        if (_scrollViewer != null)
+        {
+            _scrollViewer.ScrollChanged -= HandleScrollChanged;
+        }
+        if (_searchEdit != null)
+        {
+            _searchEdit.SearchButtonClick -= HandleSearchButtonClick;
+        }
+
         _scrollViewer = e.NameScope.Find<ScrollViewer>(IconGalleryThemeConstants.ScrollViewerPart);
         _searchEdit = e.NameScope.Find<SearchEdit>(IconGalleryThemeConstants.SearchInputPart);
+        if (_scrollViewer != null)
+        {
+            _scrollViewer.ScrollChanged += HandleScrollChanged;
+        }
         if (_searchEdit != null)
         {
             _searchEdit.SearchButtonClick += HandleSearchButtonClick;
+        }
+    }
+
+    private void HandleScrollChanged(object? sender, ScrollChangedEventArgs e)
+    {
+        if (_scrollViewer == null || IconInfoRepository?.HasMoreIconInfos != true)
+        {
+            return;
+        }
+
+        var remainingHeight = _scrollViewer.Extent.Height - _scrollViewer.Viewport.Height - _scrollViewer.Offset.Y;
+        if (remainingHeight <= LoadMoreScrollThreshold)
+        {
+            IconInfoRepository.LoadMoreIconInfos();
         }
     }
 

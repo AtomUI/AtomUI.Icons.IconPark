@@ -1,9 +1,10 @@
 using AtomUI.Theme.Language;
+using IconParkGallery.Localization;
 using IconParkGallery.Workspace.Views;
 
 namespace IconParkGallery.Workspace.Localization.WorkspaceWindowLang;
 
-[LanguageProvider(LanguageCode.en_US, WorkspaceWindow.LanguageId, Constants.LanguageCatalog)]
+[LanguageProvider(LanguageCode.en_US, WorkspaceWindow.LanguageId)]
 internal class en_US : LanguageProvider
 {
     public const string MenuItemSettings = "Settings";
@@ -22,4 +23,6 @@ internal class en_US : LanguageProvider
     public const string MenuItemCompactMode = "Compact Mode";
     public const string MenuItemEnableMotion = "Enable Motion";
     public const string MenuItemEnableWaveSpirit = "Enable WaveSpirit";
+    
+    protected override Type GetResourceKindType() => typeof(WorkspaceWindowLangResourceKind);
 }

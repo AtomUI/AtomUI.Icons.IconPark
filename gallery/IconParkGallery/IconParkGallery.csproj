@@ -17,7 +17,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics"/>
+        <PackageReference Include="Avalonia"/>
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="AvaloniaUI.DiagnosticsSupport"/>
         <PackageReference Include="AtomUI.Desktop.Controls"/>
         <PackageReference Include="AtomUI.Generator"
                           OutputItemType="Analyzer"

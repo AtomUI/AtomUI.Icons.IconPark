@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
@@ -8,6 +9,11 @@ namespace AtomUI.Icons.IconPark.Generator;
 
 public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
 {
+    private static readonly JsonSerializerOptions StringLiteralJsonSerializerOptions = new()
+    {
+        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+    };
+
     private string _configFilePath;
     public IconParkIconsPackageGenerator(string sourcePath, string targetPath)
         : base(sourcePath, targetPath)
@@ -246,12 +252,10 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
         var sourceText = new StringBuilder();
         sourceText.AppendLine("// This code is auto generated. Do not modify.");
         sourceText.AppendLine($"// Generated Date: {DateTime.Today.ToString("yyyy-MM-dd")}");
+        sourceText.AppendLine("#nullable enable");
         sourceText.AppendLine("");
-        sourceText.AppendLine("using Avalonia;");
-        sourceText.AppendLine("using System;");
-        sourceText.AppendLine("using Avalonia.Media;");
+        sourceText.AppendLine("using System.Collections.Generic;");
         sourceText.AppendLine("using AtomUI.Controls;");
-        sourceText.AppendLine("using AtomUI.Media;");
         sourceText.AppendLine("using AtomUI.Icons.IconPark;");
         sourceText.AppendLine($"namespace IconParkGallery.Models;");
         
@@ -261,12 +265,11 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
         sourceText.AppendLine(@"{");
         sourceText.AppendLine(@"    public IconMetaInfoRepository()");
         sourceText.AppendLine(@"    {");
-        sourceText.AppendLine(@"        IconInfos = [");
         
         await using var fileStream = File.OpenRead(_configFilePath);
         using var jsonDocument = await JsonDocument.ParseAsync(fileStream);
         
-        var categorySet = new HashSet<string>();
+        var iconMetaInfos = new List<IconMetaInfo>();
         
         foreach (var element in jsonDocument.RootElement.EnumerateArray())
         {
@@ -278,36 +281,87 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
             });
             if (item != null)
             {
-                categorySet.Add(item.Category);
-                var name = NormalizeIconName(item.Name);
-                var tags = string.Join(',', item.Tags.Select(tag => $"\"{tag}\"").ToList());
-                var rtl = item.Rtl ? "true" : "false";
-                sourceText.AppendLine(@"            new IconMetaInfo() {");
-                sourceText.AppendLine($"                Id = {item.Id},");
-                sourceText.AppendLine($"                Title = \"{item.Title.Trim()}\",");
-                sourceText.AppendLine($"                Name = \"{name}\",");
-                sourceText.AppendLine($"                Author = \"{item.Author}\",");
-                sourceText.AppendLine($"                Category = \"{item.Category}\",");
-                sourceText.AppendLine($"                CategoryCN = \"{item.CategoryCN}\",");
-                sourceText.AppendLine($"                Tags = [{tags}],");
-                sourceText.AppendLine($"                Rtl = {rtl},");
-                sourceText.AppendLine($"                IconType = typeof(AtomUI.Icons.IconPark.{name}),");
-                sourceText.AppendLine($"                Creator = () => new AtomUI.Icons.IconPark.{name}()");
-                sourceText.AppendLine(@"            },");
+                item.Name = NormalizeIconName(item.Name);
+                item.Title = item.Title.Trim();
+                iconMetaInfos.Add(item);
             }
         }
-        
-        sourceText.AppendLine(@"        ];");
-        var categories = categorySet.OrderBy(x => x);
+
+        var categoryGroups = iconMetaInfos
+            .GroupBy(item => item.Category)
+            .OrderBy(group => group.Key)
+            .ToList();
+        var categories = categoryGroups.Select(group => group.Key);
         sourceText.AppendLine(@"        Categories = [");
         foreach (var category in categories)
         {
-            sourceText.AppendLine($"            \"{category}\",");
+            sourceText.AppendLine($"            {StringLiteral(category)},");
         }
         sourceText.AppendLine(@"        ];");
         sourceText.AppendLine(@"    }");
+        sourceText.AppendLine("");
+        sourceText.AppendLine(@"    protected partial List<IconMetaInfo> CreateIconInfos(string? category, IconThemeType iconTheme)");
+        sourceText.AppendLine(@"    {");
+        sourceText.AppendLine(@"        return category switch");
+        sourceText.AppendLine(@"        {");
+        foreach (var categoryGroup in categoryGroups)
+        {
+            var categoryName = categoryGroup.Key;
+            sourceText.AppendLine($"            {StringLiteral(categoryName)} => Create{ToIdentifierPart(categoryName)}IconInfos(iconTheme),");
+        }
+        sourceText.AppendLine(@"            _ => []");
+        sourceText.AppendLine(@"        };");
+        sourceText.AppendLine(@"    }");
+
+        foreach (var categoryGroup in categoryGroups)
+        {
+            var categoryIdentifier = ToIdentifierPart(categoryGroup.Key);
+            sourceText.AppendLine("");
+            sourceText.AppendLine($"    private static List<IconMetaInfo> Create{categoryIdentifier}IconInfos(IconThemeType iconTheme)");
+            sourceText.AppendLine(@"    {");
+            sourceText.AppendLine(@"        return [");
+            foreach (var iconMetaInfo in categoryGroup)
+            {
+                AppendIconMetaInfo(sourceText, iconMetaInfo);
+            }
+            sourceText.AppendLine(@"        ];");
+            sourceText.AppendLine(@"    }");
+        }
         sourceText.AppendLine(@"}");
         await stream.WriteAsync(Encoding.UTF8.GetBytes(sourceText.ToString()));
+    }
+
+    private static void AppendIconMetaInfo(StringBuilder sourceText, IconMetaInfo iconMetaInfo)
+    {
+        var rtl = iconMetaInfo.Rtl ? "true" : "false";
+        var tags = string.Join(", ", iconMetaInfo.Tags.Select(StringLiteral));
+        sourceText.AppendLine(@"            new IconMetaInfo {");
+        sourceText.AppendLine($"                Id = {iconMetaInfo.Id},");
+        sourceText.AppendLine($"                Title = {StringLiteral(iconMetaInfo.Title)},");
+        sourceText.AppendLine($"                Name = {StringLiteral(iconMetaInfo.Name)},");
+        sourceText.AppendLine($"                Author = {StringLiteral(iconMetaInfo.Author)},");
+        sourceText.AppendLine($"                Category = {StringLiteral(iconMetaInfo.Category)},");
+        sourceText.AppendLine($"                CategoryCN = {StringLiteral(iconMetaInfo.CategoryCN)},");
+        sourceText.AppendLine($"                Tags = [{tags}],");
+        sourceText.AppendLine($"                Rtl = {rtl},");
+        sourceText.AppendLine($"                IconType = typeof(AtomUI.Icons.IconPark.{iconMetaInfo.Name}),");
+        sourceText.AppendLine(@"                Creator = () =>");
+        sourceText.AppendLine(@"                {");
+        sourceText.AppendLine($"                    var icon = new AtomUI.Icons.IconPark.{iconMetaInfo.Name}();");
+        sourceText.AppendLine(@"                    icon.IconTheme = iconTheme;");
+        sourceText.AppendLine(@"                    return icon;");
+        sourceText.AppendLine(@"                }");
+        sourceText.AppendLine(@"            },");
+    }
+
+    private static string StringLiteral(string value)
+    {
+        return JsonSerializer.Serialize(value, StringLiteralJsonSerializerOptions);
+    }
+
+    private static string ToIdentifierPart(string value)
+    {
+        return Regex.Replace(value, @"[^a-zA-Z0-9_]", string.Empty);
     }
 
     private void GenerateCommonCode(SvgGraphicElement graphicElement, int graphicElementCount, StringBuilder output)

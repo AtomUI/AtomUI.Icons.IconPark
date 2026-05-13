@@ -1,5 +1,7 @@
+using AtomUI.Theme;
 using AtomUI.Theme.TokenSystem;
 using Avalonia;
+using IconParkGallery.Controls.DesignTokens;
 
 namespace IconParkGallery.Controls;
 
@@ -7,6 +9,7 @@ namespace IconParkGallery.Controls;
 internal class IconGalleryToken : AbstractControlDesignToken
 {
     public const string ID = "IconGallery";
+    public static readonly ControlTokenResourceScopeProvider ScopeProvider = new(ID);
     
     public Thickness SearchInputMargin { get; set; }
     public double IconSize { get; set; }
@@ -24,4 +27,6 @@ internal class IconGalleryToken : AbstractControlDesignToken
         IconSize = 48;
         InfoItemSize = 150;
     }
+    
+    protected override Type GetTokenKindType() => typeof(IconGalleryTokenKind);
 }

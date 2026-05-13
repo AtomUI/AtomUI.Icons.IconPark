@@ -1,11 +1,10 @@
 using System.Collections;
 using AtomUI.Controls;
+using AtomUI.Controls.Primitives;
 using AtomUI.Desktop.Controls;
-using AtomUI.Desktop.Controls.Primitives;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using Avalonia.Threading;
 using IconParkGallery.Controls.Themes;
 using ComboBox = AtomUI.Desktop.Controls.ComboBox;
 using ComboBoxItem = AtomUI.Desktop.Controls.ComboBoxItem;
@@ -80,11 +79,11 @@ public class Navigation : TemplatedControl
     {
         if (Categories != null)
         {
-            var menuItems= new List<NavMenuItemData>();
+            var menuItems = new List<NavMenuNode>();
         
             foreach (var category in Categories)
             {
-                menuItems.Add(new NavMenuItemData()
+                menuItems.Add(new NavMenuNode
                 {
                     Header = category,
                     ItemKey = category,
@@ -101,11 +100,15 @@ public class Navigation : TemplatedControl
         _themeComboBox = e.NameScope.Find<ComboBox>(NavigationThemeConstants.IconThemeComboBoxPart);
         if (_categoryNavMenu != null)
         {
-            _categoryNavMenu.NavMenuItemSelected += (sender, args) =>
+            _categoryNavMenu.NavMenuNodeSelected += (sender, args) =>
             {
-                SetCurrentValue(CategoryProperty, args.NavMenuItem.ItemKey.ToString());
+                var itemKey = args.NavMenuNode.ItemKey;
+                if (itemKey.HasValue)
+                {
+                    SetCurrentValue(CategoryProperty, itemKey.Value.ToString());
+                }
             };
-            _categoryNavMenu.DefaultSelectedPath = new TreeNodePath("/Abstract");
+            _categoryNavMenu.DefaultSelectedPath = new TreeNodePath("Abstract");
         }
 
         if (_themeComboBox != null)
@@ -129,6 +132,6 @@ public class Navigation : TemplatedControl
 
     private void HandleCondChanged(string? category, IconThemeType iconTheme)
     {
-        Dispatcher.UIThread.Post(() => NavigateRequest?.Invoke(this, new NavigateRequestEventArgs(category, iconTheme)));
+        Dispatcher.Post(() => NavigateRequest?.Invoke(this, new NavigateRequestEventArgs(category, iconTheme)));
     }
 }
