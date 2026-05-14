@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Tray : IconParkIcon
@@ -15,11 +14,16 @@ public class Tray : IconParkIcon
         ViewBox = new Rect(0, 0, 48, 48);
     }
 
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(3.5484965644035764, 3.24268, 41.012193308819761, 41.012193308819761);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0724502718214586, 0, 0, 1.0724502718214586, -1.7388065237150059, -1.7388065237150059);
+
     private static readonly DrawingInstruction[] StaticInstructions = [
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(45 24.7617 3.24268)").Value,
+            Transform = new Matrix(0.70710678118654757, 0.70710678118654746, -0.70710678118654746, 0.70710678118654757, 9.5454550335110593, -16.559407000924928),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

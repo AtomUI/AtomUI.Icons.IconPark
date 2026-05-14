@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class GoogleAds : IconParkIcon
@@ -14,6 +13,11 @@ public class GoogleAds : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(4.1092437073359029, 4.4735199999999997, 38.646256292664091, 40.188236292664094);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1131788332525008, 0, 0, 1.1131788332525008, -2.7162919980600186, -2.7162919980600186);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -40,7 +44,7 @@ public class GoogleAds : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(25 12.0828 36.6882)").Value,
+            Transform = new Matrix(0.90630778703664994, 0.42261826174069944, -0.42261826174069944, 0.90630778703664994, 16.637167581188695, -1.6690132853185435),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

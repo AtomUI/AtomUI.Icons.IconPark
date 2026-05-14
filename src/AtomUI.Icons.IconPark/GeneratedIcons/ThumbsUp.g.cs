@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class ThumbsUp : IconParkIcon
@@ -14,6 +13,11 @@ public class ThumbsUp : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(6, 5.9997699999999998, 36.158700000000003, 36.036930000000005);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1471792773535339, 0, 0, 1.1471792773535339, -3.5323026564848128, -3.5323026564848128);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

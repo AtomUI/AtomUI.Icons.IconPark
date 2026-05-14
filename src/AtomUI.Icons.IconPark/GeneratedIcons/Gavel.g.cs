@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Gavel : IconParkIcon
@@ -14,6 +13,11 @@ public class Gavel : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(5.0991499999999998, 4, 39.494149999999998, 39);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1058200692519817, 0, 0, 1.1058200692519817, -2.5396816620475633, -2.5396816620475633);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -30,7 +34,7 @@ public class Gavel : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-60 14.7319 18.8564)").Value,
+            Transform = new Matrix(0.50000000000000011, -0.8660254037844386, 0.8660254037844386, 0.50000000000000011, -8.9641714239208916, 22.186399646011971),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
@@ -54,7 +58,7 @@ public class Gavel : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(30 21 4)").Value,
+            Transform = new Matrix(0.86602540378443871, 0.49999999999999994, -0.49999999999999994, 0.86602540378443871, 4.813466520526787, -9.9641016151377535),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
@@ -68,7 +72,7 @@ public class Gavel : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(30 13 17.8564)").Value,
+            Transform = new Matrix(0.86602540378443871, 0.49999999999999994, -0.49999999999999994, 0.86602540378443871, 10.669869750802295, -4.1076960201364505),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

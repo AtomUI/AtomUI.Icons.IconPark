@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Selfie : IconParkIcon
@@ -14,6 +13,11 @@ public class Selfie : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(4.2412099999999988, 2.7776000000000014, 41.304590000000005, 40.042854037844393);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0690661261943473, 0, 0, 1.0690661261943473, -1.6575870286643344, -1.6575870286643344);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -29,7 +33,7 @@ public class Selfie : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-30 4.24121 15.7776)").Value,
+            Transform = new Matrix(0.86602540378443871, -0.49999999999999994, 0.49999999999999994, 0.86602540378443871, -7.3205856027845986, 4.2344025892506387),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
@@ -53,7 +57,7 @@ public class Selfie : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-30 26.4014 34.1602)").Value,
+            Transform = new Matrix(0.86602540378443871, -0.49999999999999994, 0.49999999999999994, 0.86602540378443871, -13.542983095474478, 17.777299001642817),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

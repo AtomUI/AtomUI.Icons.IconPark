@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class STurnUp : IconParkIcon
@@ -14,6 +13,11 @@ public class STurnUp : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(5, 5.9998999999999985, 38, 36.000100000000003);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1162790697674418, 0, 0, 1.1162790697674418, -2.7906976744186025, -2.7906976744186025);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -49,7 +53,7 @@ public class STurnUp : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-180 10 10.9999)").Value,
+            Transform = new Matrix(-1, 0, 0, -1, 20, 21.9998),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

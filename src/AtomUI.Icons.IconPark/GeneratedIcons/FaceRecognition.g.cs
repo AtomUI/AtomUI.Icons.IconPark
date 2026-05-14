@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class FaceRecognition : IconParkIcon
@@ -14,6 +13,11 @@ public class FaceRecognition : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(5, 4.9997600000000002, 38, 38.000039999999998);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.116272839407408, 0, 0, 1.116272839407408, -2.790548145777791, -2.790548145777791);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

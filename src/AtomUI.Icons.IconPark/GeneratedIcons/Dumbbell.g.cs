@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Dumbbell : IconParkIcon
@@ -14,6 +13,11 @@ public class Dumbbell : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(2, 11, 44, 26);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0434782608695652, 0, 0, 1.0434782608695652, -1.0434782608695627, -1.0434782608695627);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -59,7 +63,7 @@ public class Dumbbell : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("matrix(1 0 0 -1 14 27)").Value,
+            Transform = new Matrix(1, 0, 0, -1, 14, 27),
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
             IsStrokeLinecapCustomizable = false,

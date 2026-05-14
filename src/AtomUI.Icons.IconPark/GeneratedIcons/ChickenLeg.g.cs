@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class ChickenLeg : IconParkIcon
@@ -14,6 +13,11 @@ public class ChickenLeg : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(-0.212837, 0.28687699999999999, 45.941370905932736, 45.441056905932747);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(0.9955854703177911, 0, 0, 0.9955854703177911, 0.10594871237301362, 0.10594871237301362);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -40,7 +44,7 @@ public class ChickenLeg : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(135 42.193 40.0713)").Value,
+            Transform = new Matrix(-0.70710678118654746, 0.70710678118654757, -0.70710678118654757, -0.70710678118654746, 100.3626443795645, 38.571031542356501),
             FillBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,
@@ -52,7 +56,7 @@ public class ChickenLeg : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(135 40.0719 42.1924)").Value,
+            Transform = new Matrix(-0.70710678118654746, 0.70710678118654757, -0.70710678118654757, -0.70710678118654746, 98.241544379564488, 43.691819929506075),
             FillBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,

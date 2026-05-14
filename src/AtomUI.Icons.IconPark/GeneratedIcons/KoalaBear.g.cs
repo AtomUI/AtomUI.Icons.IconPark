@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class KoalaBear : IconParkIcon
@@ -14,6 +13,11 @@ public class KoalaBear : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(2.9859399999999998, 6.0931899999999999, 42.02816, 34.90681);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0663344442464813, 0, 0, 1.0663344442464813, -1.5920266619155505, -1.5920266619155505);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new CircleDrawingInstruction()

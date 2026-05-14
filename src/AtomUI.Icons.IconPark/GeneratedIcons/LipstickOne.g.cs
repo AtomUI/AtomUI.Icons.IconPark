@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class LipstickOne : IconParkIcon
@@ -14,6 +13,11 @@ public class LipstickOne : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(5.4941050633883357, 5.3227500000000001, 36.916794936611666, 38.183739873223331);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1470079426616977, 0, 0, 1.1470079426616977, -3.5281906238807466, -3.5281906238807466);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -30,7 +34,7 @@ public class LipstickOne : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(45 28.1211 13.8076)").Value,
+            Transform = new Matrix(0.70710678118654757, 0.70710678118654746, -0.70710678118654746, 0.70710678118654757, 17.999927087486348, -15.840468096336394),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
@@ -44,7 +48,7 @@ public class LipstickOne : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(45 15.3936 23.7075)").Value,
+            Transform = new Matrix(0.70710678118654757, 0.70710678118654746, -0.70710678118654746, 0.70710678118654757, 21.272415068106834, -3.9411529618533132),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

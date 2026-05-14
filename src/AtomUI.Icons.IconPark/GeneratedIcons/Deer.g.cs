@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Deer : IconParkIcon
@@ -14,6 +13,11 @@ public class Deer : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(2.989222359914347, 4, 42.020787140085659, 40);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0664112578506577, 0, 0, 1.0664112578506577, -1.5938701884157851, -1.5938701884157851);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -30,7 +34,7 @@ public class Deer : IconParkIcon
         new EllipseDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("matrix(0.707107 -0.707107 -0.707107 -0.707107 38.9996 17.5003)").Value,
+            Transform = new Matrix(0.70710700000000004, -0.70710700000000004, -0.70710700000000004, -0.70710700000000004, 38.999600000000001, 17.500299999999999),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
@@ -44,7 +48,7 @@ public class Deer : IconParkIcon
         new EllipseDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(45 8.99963 17.4997)").Value,
+            Transform = new Matrix(0.70710678118654757, 0.70710678118654746, -0.70710678118654746, 0.70710678118654757, 15.010087137560337, -1.2381559399001141),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

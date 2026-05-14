@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Lifebuoy : IconParkIcon
@@ -14,6 +13,11 @@ public class Lifebuoy : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(2.04738, 2.04738, 43.90522, 43.90522);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0445541516457604, 0, 0, 1.0445541516457604, -1.0692996394982472, -1.0692996394982472);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

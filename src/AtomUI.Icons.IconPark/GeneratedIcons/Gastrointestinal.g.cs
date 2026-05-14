@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Gastrointestinal : IconParkIcon
@@ -14,6 +13,11 @@ public class Gastrointestinal : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(4.0224599999999997, 5, 41.901539999999997, 38);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1420120539372292, 0, 0, 1.1420120539372292, -3.4082892944934997, -3.4082892944934997);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class AlignTextMiddle : IconParkIcon
@@ -14,6 +13,11 @@ public class AlignTextMiddle : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(6, 4.0002199999999997, 36, 39.999580000000002);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.090915041354771, 0, 0, 1.090915041354771, -2.1819609925145045, -2.1819609925145045);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

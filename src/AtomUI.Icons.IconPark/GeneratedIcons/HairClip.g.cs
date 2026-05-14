@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class HairClip : IconParkIcon
@@ -14,6 +13,11 @@ public class HairClip : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(4.5996100000000002, 5.33887, 38.589390000000002, 37.272530000000003);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1059808448725921, 0, 0, 1.1059808448725921, -2.5435402769422097, -2.5435402769422097);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

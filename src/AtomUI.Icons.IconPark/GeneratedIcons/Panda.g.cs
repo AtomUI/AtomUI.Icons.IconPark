@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Panda : IconParkIcon
@@ -14,6 +13,11 @@ public class Panda : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(3.5322399999999998, 6.5319599999999998, 40.905360000000002, 37.468040000000002);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0794337290657321, 0, 0, 1.0794337290657321, -1.9064094975775703, -1.9064094975775703);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new EllipseDrawingInstruction()
@@ -32,7 +36,7 @@ public class Panda : IconParkIcon
         new EllipseDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(15 16.9333 24.6402)").Value,
+            Transform = new Matrix(0.96592582628906831, 0.25881904510252074, -0.25881904510252074, 0.96592582628906831, 6.9543412408344514, -3.5430660813624151),
             FillBrush = IconBrushType.SecondaryFill,
             StrokeBrush = IconBrushType.SecondaryStroke,
             IsStrokeWidthCustomizable = true,
@@ -46,7 +50,7 @@ public class Panda : IconParkIcon
         new EllipseDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("matrix(-0.965926 0.258819 0.258819 0.965926 30.9329 24.6402)").Value,
+            Transform = new Matrix(-0.96592599999999995, 0.25881900000000002, 0.25881900000000002, 0.96592599999999995, 30.9329, 24.6402),
             FillBrush = IconBrushType.SecondaryFill,
             StrokeBrush = IconBrushType.SecondaryStroke,
             IsStrokeWidthCustomizable = true,

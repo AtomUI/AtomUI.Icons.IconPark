@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class BabyFeet : IconParkIcon
@@ -14,6 +13,11 @@ public class BabyFeet : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(9.8125415643396003, 3.2154590868793593, 32.306466984390411, 41.636440913120644);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0734129039373468, 0, 0, 1.0734129039373468, -1.7619096944963246, -1.7619096944963246);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -30,7 +34,7 @@ public class BabyFeet : IconParkIcon
         new EllipseDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(40 34.5354 13.5354)").Value,
+            Transform = new Matrix(0.76604444311897801, 0.64278760968653925, -0.64278760968653925, 0.76604444311897801, 16.780136151260031, -19.032245170961126),
             FillBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,
@@ -43,7 +47,7 @@ public class BabyFeet : IconParkIcon
         new EllipseDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(25 29.3807 10.6032)").Value,
+            Transform = new Matrix(0.90630778703664994, 0.42261826174069944, -0.42261826174069944, 0.90630778703664994, 7.2338487543012828, -11.423383090231974),
             FillBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,
@@ -56,7 +60,7 @@ public class BabyFeet : IconParkIcon
         new EllipseDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(6 23.3805 9.60278)").Value,
+            Transform = new Matrix(0.99452189536827329, 0.10452846326765347, -0.10452846326765347, 0.99452189536827329, 1.1318446618394438, -2.3913227018339196),
             FillBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,
@@ -69,7 +73,7 @@ public class BabyFeet : IconParkIcon
         new EllipseDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-20 13.9997 8.00029)").Value,
+            Transform = new Matrix(0.93969262078590843, -0.34202014332566871, 0.34202014332566871, 0.93969262078590843, -1.8919751156633962, 5.2706559233690689),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
@@ -83,7 +87,7 @@ public class BabyFeet : IconParkIcon
         new EllipseDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(50 38.5353 17.5356)").Value,
+            Transform = new Matrix(0.64278760968653936, 0.76604444311897801, -0.76604444311897801, 0.64278760968653936, 27.19833556120345, -23.255818837342034),
             FillBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,

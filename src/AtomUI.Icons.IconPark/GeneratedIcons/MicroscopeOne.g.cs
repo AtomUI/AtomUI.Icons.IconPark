@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class MicroscopeOne : IconParkIcon
@@ -14,6 +13,11 @@ public class MicroscopeOne : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(6, 3.3507500000000001, 36, 40.649250000000002);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0750460534051525, 0, 0, 1.0750460534051525, -1.8011052817236575, -1.8011052817236575);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -50,7 +54,7 @@ public class MicroscopeOne : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(45 26.0415 22.0417)").Value,
+            Transform = new Matrix(0.70710678118654757, 0.70710678118654746, -0.70710678118654746, 0.70710678118654757, 23.213214296610044, -11.958256781149),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

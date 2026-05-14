@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class SpiderMan : IconParkIcon
@@ -14,6 +13,11 @@ public class SpiderMan : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(12.286899999999999, 3.5630600000000001, 25.325900000000001, 41.574339999999999);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0974820104407121, 0, 0, 1.0974820104407121, -2.3395682505770914, -2.3395682505770914);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

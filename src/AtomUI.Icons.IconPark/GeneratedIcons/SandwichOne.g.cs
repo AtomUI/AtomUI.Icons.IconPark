@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class SandwichOne : IconParkIcon
@@ -14,6 +13,11 @@ public class SandwichOne : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(3.73996, 3.4558, 40.845740000000006, 40.845699999999994);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0785862430818804, 0, 0, 1.0785862430818804, -1.8860698339651307, -1.8860698339651307);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -39,7 +43,7 @@ public class SandwichOne : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-45 5.07129 33.0713)").Value,
+            Transform = new Matrix(0.70710678118654757, -0.70710678118654746, 0.70710678118654746, 0.70710678118654757, -21.899594041018194, 13.272303055708857),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

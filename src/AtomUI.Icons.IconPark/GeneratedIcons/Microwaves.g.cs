@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Microwaves : IconParkIcon
@@ -15,11 +14,16 @@ public class Microwaves : IconParkIcon
         ViewBox = new Rect(0, 0, 48, 48);
     }
 
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(5, 9.9999999999999964, 38, 28.000000000000004);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1162790697674418, 0, 0, 1.1162790697674418, -2.7906976744186025, -2.7906976744186025);
+
     private static readonly DrawingInstruction[] StaticInstructions = [
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-90 5 34)").Value,
+            Transform = new Matrix(0, -1, 1, 0, -29, 38.999999999999993),
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
             IsStrokeLinecapCustomizable = false,

@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class PhoneCall : IconParkIcon
@@ -14,6 +13,11 @@ public class PhoneCall : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(4.8531399999999998, 5.5696700000000003, 37.179259999999999, 36.551629999999996);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1124795639821761, 0, 0, 1.1124795639821761, -2.6995095355722256, -2.6995095355722256);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

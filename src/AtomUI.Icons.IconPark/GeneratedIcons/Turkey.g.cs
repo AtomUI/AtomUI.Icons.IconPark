@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Turkey : IconParkIcon
@@ -14,6 +13,11 @@ public class Turkey : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(4, 4.0000032409255546, 40.293386759074451, 39.999996759074449);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0982319708783626, 0, 0, 1.0982319708783626, -2.3575673010806995, -2.3575673010806995);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -60,7 +64,7 @@ public class Turkey : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(35.0717 38.3557 7.48259)").Value,
+            Transform = new Matrix(0.81843362891017379, 0.57460107471960398, -0.57460107471960398, 0.81843362891017379, 11.26360951529621, -20.680639728969691),
             FillBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,
@@ -72,7 +76,7 @@ public class Turkey : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(35.0717 40.8108 9.20646)").Value,
+            Transform = new Matrix(0.81843362891017379, 0.57460107471960398, -0.57460107471960398, 0.81843362891017379, 12.699910667635725, -21.778346007383171),
             FillBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,

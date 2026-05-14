@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class MoreFour : IconParkIcon
@@ -15,11 +14,16 @@ public class MoreFour : IconParkIcon
         ViewBox = new Rect(0, 0, 48, 48);
     }
 
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(4.0000000000000018, 3.9289321881345263, 40.141958847035653, 40.14195884703566);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.090904708033428, 0, 0, 1.090904708033428, -2.1817129928022716, -2.1817129928022716);
+
     private static readonly DrawingInstruction[] StaticInstructions = [
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-45 17 11)").Value,
+            Transform = new Matrix(0.70710678118654757, -0.70710678118654746, 0.70710678118654746, 0.70710678118654757, -2.7989898732233307, 15.242640687119284),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
@@ -33,7 +37,7 @@ public class MoreFour : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-45 30 24)").Value,
+            Transform = new Matrix(0.70710678118654757, -0.70710678118654746, 0.70710678118654746, 0.70710678118654757, -8.1837661840735656, 28.24264068711928),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
@@ -47,7 +51,7 @@ public class MoreFour : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-45 4 24)").Value,
+            Transform = new Matrix(0.70710678118654757, -0.70710678118654746, 0.70710678118654746, 0.70710678118654757, -15.798989873223329, 9.857864376269049),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
@@ -61,7 +65,7 @@ public class MoreFour : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-45 17 37)").Value,
+            Transform = new Matrix(0.70710678118654757, -0.70710678118654746, 0.70710678118654746, 0.70710678118654757, -21.183766184073566, 22.857864376269049),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Drumstick : IconParkIcon
@@ -14,6 +13,11 @@ public class Drumstick : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(4.2513500000000004, 1.9999711574556009, 41.719178842544395, 41.7193288425444);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0434776065967566, 0, 0, 1.0434776065967566, -1.0434625583221582, -1.0434625583221582);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -40,7 +44,7 @@ public class Drumstick : IconParkIcon
         new EllipseDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(45 32.5355 15.435)").Value,
+            Transform = new Matrix(0.70710678118654757, 0.70710678118654746, -0.70710678118654746, 0.70710678118654757, 20.443620488319439, -18.485265846909275),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
@@ -54,7 +58,7 @@ public class Drumstick : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(45 30.0605 11.3983)").Value,
+            Transform = new Matrix(0.70710678118654757, 0.70710678118654746, -0.70710678118654746, 0.70710678118654757, 16.864331828140411, -17.917498619856836),
             FillBrush = IconBrushType.SecondaryStroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,
@@ -66,7 +70,7 @@ public class Drumstick : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(45 37.1318 18.4691)").Value,
+            Transform = new Matrix(0.70710678118654757, 0.70710678118654746, -0.70710678118654746, 0.70710678118654757, 23.93527827474982, -20.846673430075107),
             FillBrush = IconBrushType.SecondaryStroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,
@@ -78,7 +82,7 @@ public class Drumstick : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(45 31.4746 17.055)").Value,
+            Transform = new Matrix(0.70710678118654757, 0.70710678118654746, -0.70710678118654746, 0.70710678118654757, 21.278403058002457, -17.260609248270676),
             FillBrush = IconBrushType.SecondaryStroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,

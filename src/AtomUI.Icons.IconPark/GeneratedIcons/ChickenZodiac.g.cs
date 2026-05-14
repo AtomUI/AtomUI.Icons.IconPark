@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class ChickenZodiac : IconParkIcon
@@ -14,6 +13,11 @@ public class ChickenZodiac : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(3.8613300000000002, 4, 39.138669999999998, 40);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0874817931759158, 0, 0, 1.0874817931759158, -2.0995630362219799, -2.0995630362219799);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

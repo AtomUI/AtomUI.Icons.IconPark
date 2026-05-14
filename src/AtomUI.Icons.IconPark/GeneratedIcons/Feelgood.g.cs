@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Feelgood : IconParkIcon
@@ -14,6 +13,11 @@ public class Feelgood : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(10.266299999999999, 4.4170999999999996, 28.580100000000002, 39.872900000000001);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1195126388312286, 0, 0, 1.1195126388312286, -2.8683033319494875, -2.8683033319494875);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

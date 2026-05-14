@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class BaseballBat : IconParkIcon
@@ -14,6 +13,11 @@ public class BaseballBat : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(3.11056, 3.11124, 39.88944, 39.888759999999998);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0692938027295507, 0, 0, 1.0692938027295507, -1.6630512655092176, -1.6630512655092176);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new CircleDrawingInstruction()

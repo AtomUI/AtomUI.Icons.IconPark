@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class ChargingTreasure : IconParkIcon
@@ -14,6 +13,11 @@ public class ChargingTreasure : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(5.7436199999999999, 6, 36.570180000000001, 36);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1374687907000551, 0, 0, 1.1374687907000551, -3.299250976801325, -3.299250976801325);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

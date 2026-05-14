@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class SplitTurnDownLeft : IconParkIcon
@@ -14,6 +13,11 @@ public class SplitTurnDownLeft : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(8, 3.9435999999999964, 34, 40.0563);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0895125339337757, 0, 0, 1.0895125339337757, -2.1483008144106179, -2.1483008144106179);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -29,7 +33,7 @@ public class SplitTurnDownLeft : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-90 37 8.9436)").Value,
+            Transform = new Matrix(0, -1, 1, 0, 28.056399999999993, 45.943599999999996),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

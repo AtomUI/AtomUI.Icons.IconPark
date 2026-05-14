@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class ConvergingGateway : IconParkIcon
@@ -14,6 +13,11 @@ public class ConvergingGateway : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(3.6333500000000001, 3.4199700000000002, 41.160049999999998, 41.160029999999999);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0818934758667882, 0, 0, 1.0818934758667882, -1.9654434208029166, -1.9654434208029166);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

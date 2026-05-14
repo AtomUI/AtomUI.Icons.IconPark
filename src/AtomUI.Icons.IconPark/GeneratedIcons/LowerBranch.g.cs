@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class LowerBranch : IconParkIcon
@@ -14,6 +13,11 @@ public class LowerBranch : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(5, 4.9999998251543998, 38, 36.000000174845603);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.116279065228454, 0, 0, 1.116279065228454, -2.790697565482894, -2.790697565482894);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -39,7 +43,7 @@ public class LowerBranch : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("matrix(-4.37114e-08 1 1 4.37114e-08 24 9)").Value,
+            Transform = new Matrix(-4.3711400000000002E-08, 1, 1, 4.3711400000000002E-08, 24, 9),
             FillBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,

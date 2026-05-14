@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Parallelogram : IconParkIcon
@@ -14,6 +13,11 @@ public class Parallelogram : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(4.4089700000000001, 8, 39.182029999999997, 32);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1011439738863706, 0, 0, 1.1011439738863706, -2.4274553732728954, -2.4274553732728954);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class MovingPicture : IconParkIcon
@@ -14,6 +13,11 @@ public class MovingPicture : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(4.5, 4.5, 39, 39);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.103448275862069, 0, 0, 1.103448275862069, -2.4827586206896548, -2.4827586206896548);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new RectDrawingInstruction()
@@ -53,7 +57,7 @@ public class MovingPicture : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("matrix(1 0 0 -1 6 14)").Value,
+            Transform = new Matrix(1, 0, 0, -1, 6, 14),
             FillBrush = IconBrushType.Stroke,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = false,
@@ -78,7 +82,7 @@ public class MovingPicture : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("matrix(1 0 0 -1 6 6)").Value,
+            Transform = new Matrix(1, 0, 0, -1, 6, 6),
             FillBrush = IconBrushType.Stroke,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = false,
@@ -103,7 +107,7 @@ public class MovingPicture : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("matrix(1 0 0 -1 14 6)").Value,
+            Transform = new Matrix(1, 0, 0, -1, 14, 6),
             FillBrush = IconBrushType.Stroke,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = false,
@@ -128,7 +132,7 @@ public class MovingPicture : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("matrix(1 0 0 -1 22 6)").Value,
+            Transform = new Matrix(1, 0, 0, -1, 22, 6),
             FillBrush = IconBrushType.Stroke,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = false,

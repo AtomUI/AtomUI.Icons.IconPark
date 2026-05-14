@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Paperclip : IconParkIcon
@@ -14,6 +13,11 @@ public class Paperclip : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(2.0802299999999998, 3.4940500000000001, 42.426369999999999, 38.183749999999996);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.045301402859814, 0, 0, 1.045301402859814, -1.0872336686355339, -1.0872336686355339);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

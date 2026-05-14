@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class WalletThree : IconParkIcon
@@ -14,6 +13,11 @@ public class WalletThree : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(6, 6, 36, 36);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1428571428571428, 0, 0, 1.1428571428571428, -3.428571428571427, -3.428571428571427);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -42,7 +46,7 @@ public class WalletThree : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("matrix(-1.31134e-07 -1 -1 1.31134e-07 30 24)").Value,
+            Transform = new Matrix(-1.3113399999999999E-07, -1, -1, 1.3113399999999999E-07, 30, 24),
             FillBrush = IconBrushType.SecondaryStroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,

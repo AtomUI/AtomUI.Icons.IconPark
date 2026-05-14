@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class RadishOne : IconParkIcon
@@ -14,6 +13,11 @@ public class RadishOne : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(3.5830199999999999, 5, 39.416980000000002, 38);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0806677986661859, 0, 0, 1.0806677986661859, -1.9360271679884633, -1.9360271679884633);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

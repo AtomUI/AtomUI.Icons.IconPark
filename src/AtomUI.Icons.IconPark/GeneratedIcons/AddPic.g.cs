@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class AddPic : IconParkIcon
@@ -14,6 +13,11 @@ public class AddPic : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(6, 5.7954100000000004, 36.000500000000002, 36.204589999999996);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1373170548511431, 0, 0, 1.1373170548511431, -3.2956093164274343, -3.2956093164274343);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

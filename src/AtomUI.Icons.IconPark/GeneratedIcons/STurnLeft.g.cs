@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class STurnLeft : IconParkIcon
@@ -14,6 +13,11 @@ public class STurnLeft : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(5.9999900000000004, 4.9999399999999987, 36.000010000000003, 38.000060000000005);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1162775121709132, 0, 0, 1.1162775121709132, -2.7906602921019186, -2.7906602921019186);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -49,7 +53,7 @@ public class STurnLeft : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-180 12 9.99994)").Value,
+            Transform = new Matrix(-1, 0, 0, -1, 24, 19.999880000000001),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

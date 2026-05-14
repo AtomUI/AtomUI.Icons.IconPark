@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class HairBrush : IconParkIcon
@@ -14,6 +13,11 @@ public class HairBrush : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(6.1757050633883352, 4.5541999999999998, 37.772694936611664, 38.890635623730951);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1177555468619014, 0, 0, 1.1177555468619014, -2.8261331246856329, -2.8261331246856329);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -109,7 +113,7 @@ public class HairBrush : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(45 16.0752 29.3027)").Value,
+            Transform = new Matrix(0.70710678118654757, 0.70710678118654746, -0.70710678118654746, 0.70710678118654757, 25.428454948145056, -2.7843208060050344),
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
             IsStrokeLinecapCustomizable = true,

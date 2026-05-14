@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Fish : IconParkIcon
@@ -14,6 +13,11 @@ public class Fish : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(0.53143700000000005, 4.5595400000000001, 44.131063000000005, 43.133760000000002);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0160057739608135, 0, 0, 1.0160057739608135, -0.38413857505952365, -0.38413857505952365);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
@@ -71,7 +75,7 @@ public class Fish : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(45 33.7656 14.4593)").Value,
+            Transform = new Matrix(0.70710678118654757, 0.70710678118654746, -0.70710678118654746, 0.70710678118654757, 20.113984350378153, -19.640853812043133),
             FillBrush = IconBrushType.SecondaryStroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,

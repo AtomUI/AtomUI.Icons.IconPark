@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class FlightSafety : IconParkIcon
@@ -14,6 +13,11 @@ public class FlightSafety : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(3.88327, 5, 40.116729999999997, 38);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0880226163634521, 0, 0, 1.0880226163634521, -2.1125427927228486, -2.1125427927228486);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class MeasuringCup : IconParkIcon
@@ -14,6 +13,11 @@ public class MeasuringCup : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(-0.59092599999999995, 6, 44.590526000000004, 36);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(0.98783875820765388, 0, 0, 0.98783875820765388, 0.29186980301630783, 0.29186980301630783);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

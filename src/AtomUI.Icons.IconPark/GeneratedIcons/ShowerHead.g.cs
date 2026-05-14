@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class ShowerHead : IconParkIcon
@@ -14,6 +13,11 @@ public class ShowerHead : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(3.8290999999999999, 4, 38.170900000000003, 40);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0866882947823115, 0, 0, 1.0866882947823115, -2.0805190747754772, -2.0805190747754772);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

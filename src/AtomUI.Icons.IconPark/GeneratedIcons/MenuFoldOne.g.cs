@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class MenuFoldOne : IconParkIcon
@@ -14,6 +13,11 @@ public class MenuFoldOne : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(8, 10.5, 32, 27);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.2, 0, 0, 1.2, -4.7999999999999972, -4.7999999999999972);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class BatteryTips : IconParkIcon
@@ -15,11 +14,16 @@ public class BatteryTips : IconParkIcon
         ViewBox = new Rect(0, 0, 48, 48);
     }
 
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(14, 2, 20, 42);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0434782608695652, 0, 0, 1.0434782608695652, -1.0434782608695627, -1.0434782608695627);
+
     private static readonly DrawingInstruction[] StaticInstructions = [
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-90 14 44)").Value,
+            Transform = new Matrix(0, -1, 1, 0, -30, 57.999999999999993),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
@@ -53,7 +57,7 @@ public class BatteryTips : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("matrix(-1.31134e-07 -1 -1 1.31134e-07 24 34)").Value,
+            Transform = new Matrix(-1.3113399999999999E-07, -1, -1, 1.3113399999999999E-07, 24, 34),
             FillBrush = IconBrushType.SecondaryStroke,
             IsStrokeWidthCustomizable = false,
             IsStrokeLinecapCustomizable = false,

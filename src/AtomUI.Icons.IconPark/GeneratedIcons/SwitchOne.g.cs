@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class SwitchOne : IconParkIcon
@@ -14,6 +13,11 @@ public class SwitchOne : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(5, 5, 38, 38);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.1162790697674418, 0, 0, 1.1162790697674418, -2.7906976744186025, -2.7906976744186025);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new CircleDrawingInstruction()
@@ -31,7 +35,7 @@ public class SwitchOne : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(90 36.0063 19.3335)").Value,
+            Transform = new Matrix(0, 1, -1, 0, 55.339799999999997, -16.672800000000006),
             FillBrush = IconBrushType.SecondaryFill,
             StrokeBrush = IconBrushType.SecondaryStroke,
             IsStrokeWidthCustomizable = true,
@@ -45,7 +49,7 @@ public class SwitchOne : IconParkIcon
         new RectDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(-180 36.0063 29.8525)").Value,
+            Transform = new Matrix(-1, 0, 0, -1, 72.012600000000006, 59.705000000000005),
             StrokeBrush = IconBrushType.SecondaryStroke,
             IsStrokeWidthCustomizable = true,
             IsStrokeLinecapCustomizable = false,

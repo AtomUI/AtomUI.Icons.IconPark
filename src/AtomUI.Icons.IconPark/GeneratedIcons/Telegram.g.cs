@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Telegram : IconParkIcon
@@ -14,6 +13,11 @@ public class Telegram : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(1.1632100000000001, 5.79399, 44.141390000000001, 36.576509999999999);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0248353911529804, 0, 0, 1.0248353911529804, -0.5960493876715276, -0.5960493876715276);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()

@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class RattleOne : IconParkIcon
@@ -15,11 +14,16 @@ public class RattleOne : IconParkIcon
         ViewBox = new Rect(0, 0, 48, 48);
     }
 
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(6.9921100000000003, 1.4917474191393119, 37.968242580860689, 41.172552580860682);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0320748971711142, 0, 0, 1.0320748971711142, -0.76979753210674318, -0.76979753210674318);
+
     private static readonly DrawingInstruction[] StaticInstructions = [
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(40 29.4632 16.9889)").Value,
+            Transform = new Matrix(0.76604444311897801, 0.64278760968653925, -0.64278760968653925, 0.76604444311897801, 17.813333785700575, -14.963932341420449),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

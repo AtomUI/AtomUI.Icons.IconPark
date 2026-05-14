@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class Rattle : IconParkIcon
@@ -15,11 +14,16 @@ public class Rattle : IconParkIcon
         ViewBox = new Rect(0, 0, 48, 48);
     }
 
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(6.3180800000000001, 0.064847419139310247, 39.253672580860687, 42.704752580860685);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0013528155361542, 0, 0, 1.0013528155361542, -0.032467572867702188, -0.032467572867702188);
+
     private static readonly DrawingInstruction[] StaticInstructions = [
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(40 30.0746 15.562)").Value,
+            Transform = new Matrix(0.76604444311897801, 0.64278760968653925, -0.64278760968653925, 0.76604444311897801, 17.03918057291591, -15.69076387009633),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
@@ -52,7 +56,7 @@ public class Rattle : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(40 11.2399 19.3392)").Value,
+            Transform = new Matrix(0.76604444311897801, 0.64278760968653925, -0.64278760968653925, 0.76604444311897801, 15.06063520503692, -2.7003551484822719),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,
@@ -65,7 +69,7 @@ public class Rattle : IconParkIcon
         new CircleDrawingInstruction()
         {
             Opacity = 1,
-            Transform = TransformParser.Parse("rotate(40 28.4625 37.7069)").Value,
+            Transform = new Matrix(0.76604444311897801, 0.64278760968653925, -0.64278760968653925, 0.76604444311897801, 30.896488157415455, -9.4736035529461144),
             FillBrush = IconBrushType.Fill,
             StrokeBrush = IconBrushType.Stroke,
             IsStrokeWidthCustomizable = true,

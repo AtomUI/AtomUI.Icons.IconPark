@@ -1,10 +1,9 @@
 // This code is auto generated. Do not modify.
 
+using System.Collections.Generic;
 using Avalonia;
-using System;
 using Avalonia.Media;
 using AtomUI.Controls;
-using AtomUI.Media;
 namespace AtomUI.Icons.IconPark;
 
 public class RopeSkippingOne : IconParkIcon
@@ -14,6 +13,11 @@ public class RopeSkippingOne : IconParkIcon
         IconTheme = IconThemeType.Filled;
         ViewBox = new Rect(0, 0, 48, 48);
     }
+
+    internal override bool HasGeneratedGeometryMetadata => true;
+    internal override Rect GeneratedViewBox => new Rect(0, 0, 48, 48);
+    internal override Rect GeneratedGeometryBounds => new Rect(4, 2.0000800000000001, 40, 38.000020000000006);
+    internal override Matrix GeneratedZoomMatrix => new Matrix(1.0434800756175229, 0, 0, 1.0434800756175229, -1.0435218148205507, -1.0435218148205507);
 
     private static readonly DrawingInstruction[] StaticInstructions = [
         new PathDrawingInstruction()
