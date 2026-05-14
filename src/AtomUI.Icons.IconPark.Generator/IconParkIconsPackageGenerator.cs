@@ -4,6 +4,12 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using AtomUI.Controls;
+using AtomUI.Media;
+using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Headless;
+using Avalonia.Media;
+using System.Globalization;
 
 namespace AtomUI.Icons.IconPark.Generator;
 
@@ -27,6 +33,7 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
     {
         try
         {
+            SetupAvalonia();
             var targetProjectPath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "../../../../src/AtomUI.Icons.IconPark"));
             var sourceProjectPath = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "../../../../iconpark"));
             var generator         = new IconParkIconsPackageGenerator(sourceProjectPath, targetProjectPath);
@@ -41,6 +48,14 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
 #endif
             return 1;
         }
+    }
+
+    private static void SetupAvalonia()
+    {
+        AppBuilder.Configure<GeneratorApplication>()
+                  .UseHeadless(new AvaloniaHeadlessPlatformOptions())
+                  .SetupWithLifetime(new ClassicDesktopStyleApplicationLifetime());
+        SynchronizationContext.SetSynchronizationContext(null);
     }
 
     protected override void PrepareEnvironment()
@@ -105,11 +120,10 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
         var sourceText = new StringBuilder();
         sourceText.AppendLine("// This code is auto generated. Do not modify.");
         sourceText.AppendLine("");
+        sourceText.AppendLine("using System.Collections.Generic;");
         sourceText.AppendLine("using Avalonia;");
-        sourceText.AppendLine("using System;");
         sourceText.AppendLine("using Avalonia.Media;");
         sourceText.AppendLine("using AtomUI.Controls;");
-        sourceText.AppendLine("using AtomUI.Media;");
         sourceText.AppendLine($"namespace {PackageNamespace};");
         sourceText.AppendLine("");
         var svgSource     = await File.ReadAllTextAsync(iconFileInfo.FilePath);
@@ -124,14 +138,22 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
         svgSource = svgSource.Replace("strokeLinejoin", "stroke-linejoin");
         var    svgParsedInfo = SvgParser.Parse(svgSource);
         var    viewBox       = svgParsedInfo.ViewBox;
+        var    viewBoxRect   = new Rect(viewBox.X, viewBox.Y, viewBox.Width, viewBox.Height);
+        var    geometryBounds = CalculateGeometryBounds(svgParsedInfo);
+        var    zoomMatrix     = CalculateZoomToFit(viewBoxRect, geometryBounds);
         var    className     = $"{iconFileInfo.Name}";
         sourceText.AppendLine($"public class {className} : IconParkIcon");
         sourceText.AppendLine(@"{");
         sourceText.AppendLine($"    public {className}()");
         sourceText.AppendLine(@"    {");
         sourceText.AppendLine($"        IconTheme = IconThemeType.Filled;");
-        sourceText.AppendLine($"        ViewBox = new Rect({viewBox.X}, {viewBox.Y}, {viewBox.Width}, {viewBox.Height});");
+        sourceText.AppendLine($"        ViewBox = {FormatRect(viewBoxRect)};");
         sourceText.AppendLine(@"    }");
+        sourceText.AppendLine(@"");
+        sourceText.AppendLine(@"    internal override bool HasGeneratedGeometryMetadata => true;");
+        sourceText.AppendLine($"    internal override Rect GeneratedViewBox => {FormatRect(viewBoxRect)};");
+        sourceText.AppendLine($"    internal override Rect GeneratedGeometryBounds => {FormatRect(geometryBounds)};");
+        sourceText.AppendLine($"    internal override Matrix GeneratedZoomMatrix => {FormatMatrix(zoomMatrix)};");
         sourceText.AppendLine(@"");
         sourceText.AppendLine(@"    private static readonly DrawingInstruction[] StaticInstructions = [");
         var graphicElementCount = svgParsedInfo.GraphicElements.Count;
@@ -364,12 +386,190 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
         return Regex.Replace(value, @"[^a-zA-Z0-9_]", string.Empty);
     }
 
+    private static Rect CalculateGeometryBounds(SvgParsedInfo svgParsedInfo)
+    {
+        var group = new GeometryGroup();
+        foreach (var graphicElement in svgParsedInfo.GraphicElements)
+        {
+            if (graphicElement.FillColor == "none")
+            {
+                continue;
+            }
+
+            var geometry = BuildGeometry(graphicElement);
+            if (geometry is null)
+            {
+                continue;
+            }
+
+            if (!string.IsNullOrEmpty(graphicElement.Transform))
+            {
+                geometry.Transform = new MatrixTransform(TransformParser.Parse(graphicElement.Transform).Value);
+            }
+
+            group.Children.Add(geometry);
+        }
+
+        return group.Bounds;
+    }
+
+    private static Geometry? BuildGeometry(SvgGraphicElement graphicElement)
+    {
+        return graphicElement switch
+        {
+            RectElement rectElement => new RectangleGeometry(
+                new Rect(rectElement.X, rectElement.Y, rectElement.Width, rectElement.Height),
+                rectElement.RadiusX,
+                rectElement.RadiusY),
+            CircleElement circleElement => new EllipseGeometry
+            {
+                Center  = new Avalonia.Point(circleElement.CenterX, circleElement.CenterY),
+                RadiusX = circleElement.Radius,
+                RadiusY = circleElement.Radius
+            },
+            EllipseElement ellipseElement => new EllipseGeometry
+            {
+                Center  = new Avalonia.Point(ellipseElement.CenterX, ellipseElement.CenterY),
+                RadiusX = ellipseElement.RadiusX,
+                RadiusY = ellipseElement.RadiusY
+            },
+            LineElement lineElement => new LineGeometry
+            {
+                StartPoint = new Avalonia.Point(lineElement.X1, lineElement.Y1),
+                EndPoint   = new Avalonia.Point(lineElement.X2, lineElement.Y2)
+            },
+            PolygonElement polygonElement => new PolylineGeometry
+            {
+                Points   = polygonElement.Points.Select(point => new Avalonia.Point(point.X, point.Y)).ToArray(),
+                IsFilled = true
+            },
+            PolylineElement polylineElement => new PolylineGeometry
+            {
+                Points   = polylineElement.Points.Select(point => new Avalonia.Point(point.X, point.Y)).ToArray(),
+                IsFilled = false
+            },
+            PathElement pathElement when !string.IsNullOrEmpty(pathElement.Data) => StreamGeometry.Parse(pathElement.Data),
+            _ => null
+        };
+    }
+
+    private static Matrix CalculateZoomToFit(Rect viewbox, Rect iconBounds)
+    {
+        var viewboxCenter = new Avalonia.Point(
+            viewbox.Left + viewbox.Width / 2,
+            viewbox.Top + viewbox.Height / 2
+        );
+
+        var leftDelta   = iconBounds.Left - viewbox.Left;
+        var rightDelta  = viewbox.Right - iconBounds.Right;
+        var topDelta    = iconBounds.Top - viewbox.Top;
+        var bottomDelta = viewbox.Bottom - iconBounds.Bottom;
+
+        var minDelta = leftDelta;
+        if (rightDelta < minDelta)
+        {
+            minDelta = rightDelta;
+        }
+
+        if (topDelta < minDelta)
+        {
+            minDelta = topDelta;
+        }
+
+        if (bottomDelta < minDelta)
+        {
+            minDelta = bottomDelta;
+        }
+
+        minDelta /= 2;
+
+        var iconLeftDist   = iconBounds.Left - viewboxCenter.X - minDelta;
+        var iconRightDist  = iconBounds.Right - viewboxCenter.X - minDelta;
+        var iconTopDist    = iconBounds.Top - viewboxCenter.Y - minDelta;
+        var iconBottomDist = iconBounds.Bottom - viewboxCenter.Y - minDelta;
+
+        var viewboxLeftDist   = viewbox.Left - viewboxCenter.X;
+        var viewboxRightDist  = viewbox.Right - viewboxCenter.X;
+        var viewboxTopDist    = viewbox.Top - viewboxCenter.Y;
+        var viewboxBottomDist = viewbox.Bottom - viewboxCenter.Y;
+
+        var maxScale = double.MaxValue;
+
+        if (Math.Abs(iconLeftDist) > 0.0001)
+        {
+            var scaleLeft = viewboxLeftDist / iconLeftDist;
+            if (scaleLeft > 0 && scaleLeft < maxScale)
+            {
+                maxScale = scaleLeft;
+            }
+        }
+
+        if (Math.Abs(iconRightDist) > 0.0001)
+        {
+            var scaleRight = viewboxRightDist / iconRightDist;
+            if (scaleRight > 0 && scaleRight < maxScale)
+            {
+                maxScale = scaleRight;
+            }
+        }
+
+        if (Math.Abs(iconTopDist) > 0.0001)
+        {
+            var scaleTop = viewboxTopDist / iconTopDist;
+            if (scaleTop > 0 && scaleTop < maxScale)
+            {
+                maxScale = scaleTop;
+            }
+        }
+
+        if (Math.Abs(iconBottomDist) > 0.0001)
+        {
+            var scaleBottom = viewboxBottomDist / iconBottomDist;
+            if (scaleBottom > 0 && scaleBottom < maxScale)
+            {
+                maxScale = scaleBottom;
+            }
+        }
+
+        if (maxScale > 1000 || maxScale <= 0)
+        {
+            maxScale = 1.0;
+        }
+
+        var transform = Matrix.Identity;
+        transform *= Matrix.CreateTranslation(-viewboxCenter.X, -viewboxCenter.Y);
+        transform *= Matrix.CreateScale(maxScale, maxScale);
+        transform *= Matrix.CreateTranslation(viewboxCenter.X, viewboxCenter.Y);
+
+        return transform;
+    }
+
+    private static string FormatRect(Rect rect)
+    {
+        return $"new Rect({FormatDouble(rect.X)}, {FormatDouble(rect.Y)}, {FormatDouble(rect.Width)}, {FormatDouble(rect.Height)})";
+    }
+
+    private static string FormatMatrix(Matrix matrix)
+    {
+        return $"new Matrix({FormatDouble(matrix.M11)}, {FormatDouble(matrix.M12)}, {FormatDouble(matrix.M21)}, {FormatDouble(matrix.M22)}, {FormatDouble(matrix.M31)}, {FormatDouble(matrix.M32)})";
+    }
+
+    private static string FormatDouble(double value)
+    {
+        if (Math.Abs(value) < 1e-12)
+        {
+            value = 0;
+        }
+
+        return value.ToString("G17", CultureInfo.InvariantCulture);
+    }
+
     private void GenerateCommonCode(SvgGraphicElement graphicElement, int graphicElementCount, StringBuilder output)
     {
         output.AppendLine($"            Opacity = {graphicElement.Opacity},");
         if (!string.IsNullOrEmpty(graphicElement.Transform))
         {
-            output.AppendLine($"            Transform = TransformParser.Parse(\"{graphicElement.Transform}\").Value,");
+            output.AppendLine($"            Transform = {FormatMatrix(TransformParser.Parse(graphicElement.Transform).Value)},");
         }
         if (!string.IsNullOrEmpty(graphicElement.FillColor))
         {
@@ -454,4 +654,6 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
         sourceText.AppendLine("}");
         await output.WriteAsync(Encoding.UTF8.GetBytes(sourceText.ToString()));
     }
+
+    private sealed class GeneratorApplication : Avalonia.Application;
 }
