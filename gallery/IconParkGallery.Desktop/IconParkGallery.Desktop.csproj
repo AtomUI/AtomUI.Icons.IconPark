@@ -8,10 +8,6 @@
         <ApplicationIcon>Assets/IconParkGallery.ico</ApplicationIcon>
     </PropertyGroup>
 
-    <ItemGroup>
-        <TrimmerRootDescriptor Include="Roots.xml"/>
-    </ItemGroup>
-
     <PropertyGroup Condition="'$(Configuration)' == 'Release'">
         <!--        <IsTrimmable>true</IsTrimmable>-->
         <!--        <PublishTrimmed>true</PublishTrimmed>-->

@@ -1,25 +1,29 @@
-using System.Reflection;
+using System.Diagnostics.CodeAnalysis;
 using AtomUI.Controls;
 
 namespace AtomUI.Icons.IconPark;
 
-public class IconParkIconProvider : IconProvider<IconParkIconKind>
+public partial class IconParkIconProvider : IconProvider<IconParkIconKind>
 {
     public IconParkIconProvider() { }
     
     public IconParkIconProvider(IconParkIconKind kind) : base(kind) { }
-    
-    
+
+    protected override Icon GetIcon(IconParkIconKind kind)
+    {
+        try
+        {
+            return CreateIcon(kind);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException($"Create icon {kind} failed", ex);
+        }
+    }
+
+    [return: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)]
     protected override Type GetTypeForKind(IconParkIconKind kind)
     {
-        var typeName = $"AtomUI.Icons.IconPark.{kind.ToString()}";
-        
-        var type = Type.GetType(typeName) 
-                   ?? Assembly.GetExecutingAssembly().GetType(typeName);
-        if (type == null)
-        {
-            throw new InvalidOperationException($"Type {typeName} does not exist");
-        }
-        return type;
+        return GetIconType(kind);
     }
 }

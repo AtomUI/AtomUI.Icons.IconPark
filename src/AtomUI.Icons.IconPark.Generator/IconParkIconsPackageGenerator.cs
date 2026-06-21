@@ -655,5 +655,119 @@ public class IconParkIconsPackageGenerator : DefaultIconPackageGenerator
         await output.WriteAsync(Encoding.UTF8.GetBytes(sourceText.ToString()));
     }
 
+    protected override async Task GenerateIconProviderFactoryAsync()
+    {
+        const int chunkSize = 64;
+        var iconCount = IconFiles.Count;
+        var chunkCount = (iconCount + chunkSize - 1) / chunkSize;
+        await using var output = new FileStream(
+            Path.Combine(TargetPath, $"{PackageName}IconProvider.Factory.g.cs"),
+            FileMode.Create,
+            FileAccess.Write);
+
+        var sourceText = new StringBuilder();
+        sourceText.AppendLine("// This code is auto generated. Do not modify.");
+        sourceText.AppendLine("using System;");
+        sourceText.AppendLine("using System.Diagnostics.CodeAnalysis;");
+        sourceText.AppendLine("using AtomUI.Controls;");
+        sourceText.AppendLine();
+        sourceText.AppendLine($"namespace {PackageNamespace};");
+        sourceText.AppendLine();
+        sourceText.AppendLine($"public partial class {PackageName}IconProvider");
+        sourceText.AppendLine("{");
+        sourceText.AppendLine($"    private const int IconFactoryIconCount = {iconCount};");
+        sourceText.AppendLine($"    private const int IconFactoryChunkSize = {chunkSize};");
+        sourceText.AppendLine();
+        sourceText.AppendLine($"    private static int GetIconIndex({PackageName}IconKind kind)");
+        sourceText.AppendLine("    {");
+        sourceText.AppendLine("        var index = (int)kind - 1;");
+        sourceText.AppendLine("        if ((uint)index >= IconFactoryIconCount)");
+        sourceText.AppendLine("        {");
+        sourceText.AppendLine("            throw new InvalidOperationException($\"Icon kind {kind} does not exist\");");
+        sourceText.AppendLine("        }");
+        sourceText.AppendLine();
+        sourceText.AppendLine("        return index;");
+        sourceText.AppendLine("    }");
+        sourceText.AppendLine();
+        sourceText.AppendLine("    [UnconditionalSuppressMessage(\"Trimming\", \"IL2063\",");
+        sourceText.AppendLine("        Justification = \"Every switch arm returns typeof(...) for a generated icon class with a public parameterless constructor.\")]");
+        sourceText.AppendLine("    [return: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)]");
+        sourceText.AppendLine($"    private static Type GetIconType({PackageName}IconKind kind)");
+        sourceText.AppendLine("    {");
+        sourceText.AppendLine("        var index = GetIconIndex(kind);");
+        sourceText.AppendLine("        return GetIconTypeChunk(index / IconFactoryChunkSize, kind);");
+        sourceText.AppendLine("    }");
+        sourceText.AppendLine();
+        sourceText.AppendLine("    [UnconditionalSuppressMessage(\"Trimming\", \"IL2063\",");
+        sourceText.AppendLine("        Justification = \"Every switch arm returns typeof(...) for a generated icon class with a public parameterless constructor.\")]");
+        sourceText.AppendLine("    [return: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)]");
+        sourceText.AppendLine($"    private static Type GetIconTypeChunk(int chunkIndex, {PackageName}IconKind kind)");
+        sourceText.AppendLine("    {");
+        sourceText.AppendLine("        return chunkIndex switch");
+        sourceText.AppendLine("        {");
+        for (var i = 0; i < chunkCount; i++)
+        {
+            sourceText.AppendLine($"            {i} => GetIconTypeChunk{i}(kind),");
+        }
+        sourceText.AppendLine("            _ => throw new ArgumentOutOfRangeException(nameof(chunkIndex))");
+        sourceText.AppendLine("        };");
+        sourceText.AppendLine("    }");
+        sourceText.AppendLine();
+        sourceText.AppendLine($"    private static Icon CreateIcon({PackageName}IconKind kind)");
+        sourceText.AppendLine("    {");
+        sourceText.AppendLine("        var index = GetIconIndex(kind);");
+        sourceText.AppendLine("        return CreateIconChunk(index / IconFactoryChunkSize, kind);");
+        sourceText.AppendLine("    }");
+        sourceText.AppendLine();
+        sourceText.AppendLine($"    private static Icon CreateIconChunk(int chunkIndex, {PackageName}IconKind kind)");
+        sourceText.AppendLine("    {");
+        sourceText.AppendLine("        return chunkIndex switch");
+        sourceText.AppendLine("        {");
+        for (var i = 0; i < chunkCount; i++)
+        {
+            sourceText.AppendLine($"            {i} => CreateIconChunk{i}(kind),");
+        }
+        sourceText.AppendLine("            _ => throw new ArgumentOutOfRangeException(nameof(chunkIndex))");
+        sourceText.AppendLine("        };");
+        sourceText.AppendLine("    }");
+
+        for (var chunkIndex = 0; chunkIndex < chunkCount; chunkIndex++)
+        {
+            var chunk = IconFiles.Skip(chunkIndex * chunkSize).Take(chunkSize).ToArray();
+            sourceText.AppendLine();
+            sourceText.AppendLine("    [UnconditionalSuppressMessage(\"Trimming\", \"IL2063\",");
+            sourceText.AppendLine("        Justification = \"Every switch arm returns typeof(...) for a generated icon class with a public parameterless constructor.\")]");
+            sourceText.AppendLine("    [return: DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.PublicParameterlessConstructor)]");
+            sourceText.AppendLine($"    private static Type GetIconTypeChunk{chunkIndex}({PackageName}IconKind kind)");
+            sourceText.AppendLine("    {");
+            sourceText.AppendLine("        switch (kind)");
+            sourceText.AppendLine("        {");
+            foreach (var iconFileInfo in chunk)
+            {
+                var typeName = iconFileInfo.Name;
+                sourceText.AppendLine($"            case {PackageName}IconKind.{typeName}: return typeof({typeName});");
+            }
+            sourceText.AppendLine("            default: throw new InvalidOperationException($\"Icon kind {kind} does not exist\");");
+            sourceText.AppendLine("        }");
+            sourceText.AppendLine("    }");
+            sourceText.AppendLine();
+            sourceText.AppendLine($"    private static Icon CreateIconChunk{chunkIndex}({PackageName}IconKind kind)");
+            sourceText.AppendLine("    {");
+            sourceText.AppendLine("        return kind switch");
+            sourceText.AppendLine("        {");
+            foreach (var iconFileInfo in chunk)
+            {
+                var typeName = iconFileInfo.Name;
+                sourceText.AppendLine($"            {PackageName}IconKind.{typeName} => new {typeName}(),");
+            }
+            sourceText.AppendLine("            _ => throw new InvalidOperationException($\"Icon kind {kind} does not exist\")");
+            sourceText.AppendLine("        };");
+            sourceText.AppendLine("    }");
+        }
+
+        sourceText.AppendLine("}");
+        await output.WriteAsync(Encoding.UTF8.GetBytes(sourceText.ToString()));
+    }
+
     private sealed class GeneratorApplication : Avalonia.Application;
 }
