@@ -25,6 +25,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Avalonia.Desktop"/>
         <ProjectReference Include="../IconParkGallery/IconParkGallery.csproj" />
     </ItemGroup>
 

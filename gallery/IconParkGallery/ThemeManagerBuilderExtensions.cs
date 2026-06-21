@@ -11,7 +11,7 @@ public static class ThemeManagerBuilderExtensions
         var controlTokenTypes = ControlTokenTypePool.GetTokenTypes();
         foreach (var controlType in controlTokenTypes)
         {
-            themeManagerBuilder.AddControlToken(controlType);
+            themeManagerBuilder.AddControlToken(controlType.TokenType);
         }
         themeManagerBuilder.AddControlThemesProvider(new GalleryControlThemesProvider());
         var languageProviders = LanguageProviderPool.GetLanguageProviders();
