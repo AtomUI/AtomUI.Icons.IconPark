@@ -48,11 +48,6 @@ public class IconInfoItem : TemplatedControl, IMotionAwareControl
         remove => RemoveHandler(ClickedEvent, value);
     }
     
-    public IconInfoItem()
-    {
-        this.RegisterTokenResourceScope(IconGalleryToken.ScopeProvider);
-    }
-    
     protected override void OnLoaded(RoutedEventArgs e)
     {
         base.OnLoaded(e);

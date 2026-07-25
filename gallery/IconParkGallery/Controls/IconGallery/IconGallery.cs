@@ -68,11 +68,6 @@ public class IconGallery : TemplatedControl, IMotionAwareControl
     private ScrollViewer? _scrollViewer;
     private SearchEdit? _searchEdit;
     
-    public IconGallery()
-    {
-        this.RegisterTokenResourceScope(IconGalleryToken.ScopeProvider);
-    }
-
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);

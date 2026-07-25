@@ -1,7 +1,9 @@
 using System.Reactive;
 using AtomUI.Controls;
 using AtomUI.Theme;
+using AtomUI.Theme.Configuration;
 using AtomUI.Theme.Language;
+using AtomUI.Theme.Resources;
 using Avalonia;
 using IconParkGallery.Models;
 using ReactiveUI;
@@ -10,6 +12,13 @@ namespace IconParkGallery.Workspace.ViewModels;
 
 public class WorkspaceWindowViewModel : ReactiveObject, IScreen
 {
+    private readonly IThemeManager? _themeManager;
+    private readonly ILanguageManager? _languageManager;
+    private bool _isDark;
+    private bool _isCompact;
+    private bool _isMotionEnabled = true;
+    private bool _isWaveSpiritEnabled = true;
+
     public RoutingState Router { get; } = new RoutingState();
     
     private List<string>? _categories;
@@ -51,29 +60,95 @@ public class WorkspaceWindowViewModel : ReactiveObject, IScreen
     
     public WorkspaceWindowViewModel()
     {
-        ToggleDarkModeCommand = ReactiveCommand.Create<bool>(isDark =>
-            Application.Current?.SetDarkThemeMode(isDark));
+        _themeManager = Application.Current?.GetThemeManager();
+        _languageManager = Application.Current?.GetLanguageManager();
 
-        ToggleCompactModeCommand = ReactiveCommand.Create<bool>(isCompact =>
-            Application.Current?.SetCompactThemeMode(isCompact));
+        ToggleDarkModeCommand = ReactiveCommand.CreateFromTask<bool>(SetDarkModeAsync);
+        ToggleCompactModeCommand = ReactiveCommand.CreateFromTask<bool>(SetCompactModeAsync);
+        ToggleMotionCommand = ReactiveCommand.CreateFromTask<bool>(SetMotionEnabledAsync);
+        ToggleWaveSpiritCommand = ReactiveCommand.CreateFromTask<bool>(SetWaveSpiritEnabledAsync);
 
-        ToggleMotionCommand = ReactiveCommand.Create<bool>(enabled =>
-            Application.Current?.SetMotionEnabled(enabled));
+        SwitchToZhCNCommand = ReactiveCommand.Create(() => SetLanguageVariant(LanguageVariant.zh_CN));
+        SwitchToEnUSCommand = ReactiveCommand.Create(() => SetLanguageVariant(LanguageVariant.en_US));
 
-        ToggleWaveSpiritCommand = ReactiveCommand.Create<bool>(enabled =>
-            Application.Current?.SetWaveSpiritEnabled(enabled));
-
-        SwitchToZhCNCommand = ReactiveCommand.Create(() =>
-            Application.Current?.SetLanguageVariant(LanguageVariant.zh_CN));
-
-        SwitchToEnUSCommand = ReactiveCommand.Create(() =>
-            Application.Current?.SetLanguageVariant(LanguageVariant.en_US));
-
-        var themeManager = Application.Current?.GetThemeManager();
-        SyncLanguageState(themeManager?.LanguageVariant);
-        if (themeManager != null)
+        SyncLanguageState(_languageManager?.LanguageVariant);
+        if (_languageManager != null)
         {
-            themeManager.LanguageVariantChanged += (_, args) => SyncLanguageState(args.NewLanguage);
+            _languageManager.LanguageVariantChanged += (_, args) => SyncLanguageState(args.NewLanguage);
+        }
+    }
+
+    private async Task SetDarkModeAsync(bool isDark)
+    {
+        _isDark = isDark;
+        await ApplyThemeSettingsAsync();
+    }
+
+    private async Task SetCompactModeAsync(bool isCompact)
+    {
+        _isCompact = isCompact;
+        await ApplyThemeSettingsAsync();
+    }
+
+    private async Task SetMotionEnabledAsync(bool enabled)
+    {
+        _isMotionEnabled = enabled;
+        if (!enabled)
+        {
+            _isWaveSpiritEnabled = false;
+        }
+        await ApplyThemeSettingsAsync();
+    }
+
+    private async Task SetWaveSpiritEnabledAsync(bool enabled)
+    {
+        if (enabled)
+        {
+            _isMotionEnabled = true;
+        }
+        _isWaveSpiritEnabled = enabled;
+        await ApplyThemeSettingsAsync();
+    }
+
+    private async Task ApplyThemeSettingsAsync()
+    {
+        if (_themeManager is null)
+        {
+            return;
+        }
+
+        var algorithms = new List<string> { "Default" };
+        if (_isCompact)
+        {
+            algorithms.Add("Compact");
+        }
+        if (_isDark)
+        {
+            algorithms.Add("Dark");
+        }
+
+        var config = new ThemeConfigBuilder()
+                     .WithAlgorithms(algorithms.ToArray())
+                     .WithToken(nameof(SharedTokenKind.EnableMotion), _isMotionEnabled ? "true" : "false")
+                     .WithToken(nameof(SharedTokenKind.EnableWaveSpirit), _isWaveSpiritEnabled ? "true" : "false")
+                     .Build();
+        var result = await _themeManager.ApplyThemeAsync(
+            new ThemeRequest(
+                _themeManager.CurrentTheme?.ThemeId ?? IThemeManager.DEFAULT_THEME_ID,
+                config,
+                ThemeTransitionReason.UserRequest));
+        if (result.Status == ThemeTransitionStatus.Failed)
+        {
+            var message = string.Join(" ", result.Diagnostics.Select(static diagnostic => diagnostic.Message));
+            throw new ThemeLoadException(message, result.Exception);
+        }
+    }
+
+    private void SetLanguageVariant(LanguageVariant variant)
+    {
+        if (_languageManager is not null)
+        {
+            _languageManager.LanguageVariant = variant;
         }
     }
 
