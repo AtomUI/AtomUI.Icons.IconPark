@@ -24,9 +24,7 @@ internal static class ColorConverter
     /// <returns>等效的不透明颜色。如果输入颜色不是黑色，会警告并基于其亮度计算。</returns>
     public static Color ToOpaqueOnWhite(this Color transparentColor)
     {
-        // 可选：检查输入颜色是否接近黑色，如果不是，可以发出警告或按一般算法处理
-        // 这里我们简化处理，假设它是黑色的
-        return BlackTransparentToOpaqueOnWhite(transparentColor.A / 255.0);
+        return transparentColor.BlendWithBackground(Colors.White);
     }
 
     /// <summary>

@@ -6,11 +6,13 @@
              xmlns:viewModels="clr-namespace:IconParkGallery.Workspace.ViewModels"
              x:Class="IconParkGallery.Workspace.Views.WorkspaceWindow"
              x:DataType="viewModels:WorkspaceWindowViewModel"
+             Title="{gallery:WorkspaceWindowLangResource WindowTitle}"
              IsPinCaptionButtonVisible="True"
              IsFullScreenCaptionButtonVisible="True"
              WindowState="Normal"
              WindowStartupLocation="CenterScreen"
              Height="900"
+             MinWidth="520"
              Width="1300">
     <atom:Window.LogoTemplate>
         <DataTemplate>
@@ -57,13 +59,34 @@
             </atom:MenuItem>
             <atom:MenuItem Header="{gallery:WorkspaceWindowLangResource MenuItemTheme}">
                 <atom:MenuItem
-                    Header="{gallery:WorkspaceWindowLangResource MenuItemDarkMode}"
-                    ToggleType="CheckBox"
-                    Tag="{x:Static workspaceviews:WindowMenuItemKind.DarkMode}" />
+                    Name="ThemeCatalogMenuItem"
+                    Header="{gallery:WorkspaceWindowLangResource MenuItemThemeSettings}"
+                    Tag="{x:Static workspaceviews:WindowMenuItemKind.ThemeCatalog}" />
+                <atom:MenuSeparator />
                 <atom:MenuItem
-                    Header="{gallery:WorkspaceWindowLangResource MenuItemCompactMode}"
-                    ToggleType="CheckBox"
-                    Tag="{x:Static workspaceviews:WindowMenuItemKind.Compact}" />
+                    Header="{gallery:WorkspaceWindowLangResource MenuItemAppearance}">
+                    <atom:MenuItem
+                        Header="{gallery:WorkspaceWindowLangResource MenuItemLightMode}"
+                        ToggleType="Radio"
+                        GroupName="ThemeAppearance"
+                        IsChecked="{Binding IsLightAppearanceMode}"
+                        Tag="{x:Static workspaceviews:WindowMenuItemKind.LightMode}" />
+                    <atom:MenuItem
+                        Header="{gallery:WorkspaceWindowLangResource MenuItemDarkMode}"
+                        ToggleType="Radio"
+                        GroupName="ThemeAppearance"
+                        IsChecked="{Binding IsDarkAppearanceMode}"
+                        Tag="{x:Static workspaceviews:WindowMenuItemKind.DarkMode}" />
+                    <atom:MenuItem
+                        Header="{gallery:WorkspaceWindowLangResource MenuItemFollowSystem}"
+                        ToggleType="Radio"
+                        GroupName="ThemeAppearance"
+                        IsChecked="{Binding IsSystemAppearanceMode}"
+                        Tag="{x:Static workspaceviews:WindowMenuItemKind.FollowSystem}" />
+                </atom:MenuItem>
+                <atom:MenuItem Header="{gallery:WorkspaceWindowLangResource MenuItemCompactMode}"
+                               ToggleType="CheckBox"
+                               Tag="{x:Static workspaceviews:WindowMenuItemKind.Compact}" />
                 <atom:MenuItem
                     Header="{gallery:WorkspaceWindowLangResource MenuItemEnableMotion}"
                     ToggleType="CheckBox"
@@ -80,10 +103,18 @@
                                ToggleType="Radio"
                                IsChecked="{Binding IsZhCN}"
                                Tag="{x:Static workspaceviews:WindowMenuItemKind.LanguageZhCN}" />
+                <atom:MenuItem Header="繁體中文"
+                               ToggleType="Radio"
+                               IsChecked="{Binding IsZhTW}"
+                               Tag="{x:Static workspaceviews:WindowMenuItemKind.LanguageZhTW}" />
                 <atom:MenuItem Header="English"
                                ToggleType="Radio"
                                IsChecked="{Binding IsEnUS}"
                                Tag="{x:Static workspaceviews:WindowMenuItemKind.LanguageEnUS}" />
+                <atom:MenuItem Header="Português (Brasil)"
+                               ToggleType="Radio"
+                               IsChecked="{Binding IsPtBR}"
+                               Tag="{x:Static workspaceviews:WindowMenuItemKind.LanguagePtBR}" />
             </atom:MenuItem>
         </atom:Menu>
         <gallery:Navigation Name="Navigation"

@@ -1,12 +1,17 @@
 using System.Reactive;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Windows.Input;
 using AtomUI.Controls;
 using AtomUI.Desktop.Controls;
+using AtomUI.Theme;
 using IconParkGallery.Workspace.ViewModels;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input.Platform;
 using Avalonia.Interactivity;
+using Avalonia.Layout;
+using Avalonia.Media;
 using Avalonia.Threading;
 using IconParkGallery.Controls;
 using IconParkGallery.Models;
@@ -23,17 +28,23 @@ internal enum WindowMenuItemKind
     Maximize,
     Move,
     Resize,
+    ThemeCatalog,
+    LightMode,
     DarkMode,
+    FollowSystem,
     Compact,
     Motion,
     WaveSpirit,
     LanguageZhCN,
+    LanguageZhTW,
     LanguageEnUS,
+    LanguagePtBR,
 }
 
 public partial class WorkspaceWindow : ReactiveWindow<WorkspaceWindowViewModel>
 {
     public const string LanguageId = nameof(WorkspaceWindow);
+    private const string ThemeColorGroupName = "ThemeColor";
 
     static WorkspaceWindow()
     {
@@ -49,11 +60,14 @@ public partial class WorkspaceWindow : ReactiveWindow<WorkspaceWindowViewModel>
     private WindowMessageManager? _messageManager;
     private bool _isMenuHandlerRegistered;
     private bool _isRepositoryInitializationRequested;
+    private readonly List<MenuItem> _themeMenuItems = new();
+    private PropertyChangedEventHandler? _viewModelPropertyChangedHandler;
     
     public WorkspaceWindow()
     {
         ViewModel = new WorkspaceWindowViewModel();
         InitializeComponent();
+        ConfigureThemeMenu();
         _messageManager = new WindowMessageManager(this);
     }
 
@@ -93,6 +107,109 @@ public partial class WorkspaceWindow : ReactiveWindow<WorkspaceWindowViewModel>
         }
     }
 
+    protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
+    {
+        if (_isMenuHandlerRegistered)
+        {
+            RemoveHandler(MenuItem.ClickEvent, HandleMenuItemClick);
+            _isMenuHandlerRegistered = false;
+        }
+
+        if (ViewModel is not null && _viewModelPropertyChangedHandler is not null)
+        {
+            ViewModel.PropertyChanged -= _viewModelPropertyChangedHandler;
+            _viewModelPropertyChangedHandler = null;
+        }
+
+        ViewModel?.Dispose();
+        base.OnDetachedFromVisualTree(e);
+    }
+
+    private void ConfigureThemeMenu()
+    {
+        if (ViewModel is null)
+        {
+            return;
+        }
+
+        RebuildThemeMenuItems();
+        _viewModelPropertyChangedHandler = HandleViewModelPropertyChanged;
+        ViewModel.PropertyChanged += _viewModelPropertyChangedHandler;
+    }
+
+    private void HandleViewModelPropertyChanged(object? sender, PropertyChangedEventArgs args)
+    {
+        if (args.PropertyName is nameof(WorkspaceWindowViewModel.AvailableThemes) or
+            nameof(WorkspaceWindowViewModel.CurrentThemeId))
+        {
+            RebuildThemeMenuItems();
+        }
+    }
+
+    private void RebuildThemeMenuItems()
+    {
+        if (ViewModel is null)
+        {
+            return;
+        }
+
+        foreach (var existing in _themeMenuItems)
+        {
+            ThemeCatalogMenuItem.Items.Remove(existing);
+        }
+        _themeMenuItems.Clear();
+
+        var insertIndex = 0;
+        var switchThemeCommand = new StableCommand(ViewModel.SwitchThemeCommand);
+        foreach (var theme in ViewModel.AvailableThemes)
+        {
+            var item = new MenuItem
+            {
+                Header           = CreateThemeMenuHeader(theme),
+                ToggleType       = MenuItemToggleType.Radio,
+                GroupName        = ThemeColorGroupName,
+                IsChecked        = string.Equals(theme.Id, ViewModel.CurrentThemeId, StringComparison.Ordinal),
+                Command          = switchThemeCommand,
+                CommandParameter = theme.Id
+            };
+            ThemeCatalogMenuItem.Items.Insert(insertIndex++, item);
+            _themeMenuItems.Add(item);
+        }
+    }
+
+    private static Control CreateThemeMenuHeader(ThemeInfo theme)
+    {
+        var header = new Grid
+        {
+            Width             = 160,
+            ColumnDefinitions = new ColumnDefinitions("*,Auto")
+        };
+        header.Children.Add(new Avalonia.Controls.TextBlock
+        {
+            Text              = theme.Name,
+            VerticalAlignment = VerticalAlignment.Center
+        });
+
+        if (theme.AccentColor is { } accentColor)
+        {
+            var swatch = new Border
+            {
+                Width               = 12,
+                Height              = 12,
+                CornerRadius        = new CornerRadius(2),
+                Background          = new SolidColorBrush(accentColor),
+                Margin              = new Thickness(12, 0, 0, 0),
+                HorizontalAlignment = HorizontalAlignment.Right,
+                VerticalAlignment   = VerticalAlignment.Center,
+                IsHitTestVisible    = false
+            };
+            Grid.SetColumn(swatch, 1);
+            header.Children.Add(swatch);
+        }
+
+        return header;
+    }
+
     private void InitializeIconRepository()
     {
         if (ViewModel is { IconInfoRepository: null } viewModel)
@@ -130,8 +247,16 @@ public partial class WorkspaceWindow : ReactiveWindow<WorkspaceWindowViewModel>
                 case WindowMenuItemKind.Resize:
                     CanResize = menuItem.IsChecked;
                     break;
+                case WindowMenuItemKind.LightMode:
+                    ViewModel.SetAppearanceModeCommand.Execute(ThemePreference.Light)
+                             .Subscribe();
+                    break;
                 case WindowMenuItemKind.DarkMode:
-                    ViewModel.ToggleDarkModeCommand.Execute(menuItem.IsChecked)
+                    ViewModel.SetAppearanceModeCommand.Execute(ThemePreference.Dark)
+                             .Subscribe();
+                    break;
+                case WindowMenuItemKind.FollowSystem:
+                    ViewModel.SetAppearanceModeCommand.Execute(ThemePreference.System)
                              .Subscribe();
                     break;
                 case WindowMenuItemKind.Compact:
@@ -139,25 +264,20 @@ public partial class WorkspaceWindow : ReactiveWindow<WorkspaceWindowViewModel>
                              .Subscribe();
                     break;
                 case WindowMenuItemKind.Motion:
-                    if (menuItem.Parent is MenuItem themeMenuItem)
+                    if (!menuItem.IsChecked &&
+                        FindSiblingMenuItem(menuItem, WindowMenuItemKind.WaveSpirit) is { } waveSpiritMenuItem)
                     {
-                        foreach (var item in themeMenuItem.Items)
-                        {
-                            if (item is MenuItem themeMenuChildItem &&
-                                themeMenuChildItem.Tag is WindowMenuItemKind childKind &&
-                                childKind == WindowMenuItemKind.WaveSpirit)
-                            {
-                                if (!menuItem.IsChecked)
-                                {
-                                    themeMenuChildItem.IsChecked = false;
-                                }
-                            }
-                        }
+                        waveSpiritMenuItem.IsChecked = false;
                     }
                     ViewModel.ToggleMotionCommand.Execute(menuItem.IsChecked)
                              .Subscribe();
                     break;
                 case WindowMenuItemKind.WaveSpirit:
+                    if (menuItem.IsChecked &&
+                        FindSiblingMenuItem(menuItem, WindowMenuItemKind.Motion) is { } motionMenuItem)
+                    {
+                        motionMenuItem.IsChecked = true;
+                    }
                     ViewModel.ToggleWaveSpiritCommand.Execute(menuItem.IsChecked)
                              .Subscribe();
                     break;
@@ -165,10 +285,60 @@ public partial class WorkspaceWindow : ReactiveWindow<WorkspaceWindowViewModel>
                     ViewModel.SwitchToZhCNCommand.Execute(Unit.Default)
                              .Subscribe();
                     break;
+                case WindowMenuItemKind.LanguageZhTW:
+                    ViewModel.SwitchToZhTWCommand.Execute(Unit.Default)
+                             .Subscribe();
+                    break;
                 case WindowMenuItemKind.LanguageEnUS:
                     ViewModel.SwitchToEnUSCommand.Execute(Unit.Default)
                              .Subscribe();
                     break;
+                case WindowMenuItemKind.LanguagePtBR:
+                    ViewModel.SwitchToPtBRCommand.Execute(Unit.Default)
+                             .Subscribe();
+                    break;
+            }
+        }
+    }
+
+    private static MenuItem? FindSiblingMenuItem(MenuItem menuItem, WindowMenuItemKind kind)
+    {
+        if (menuItem.Parent is not MenuItem parent)
+        {
+            return null;
+        }
+
+        foreach (var item in parent.Items)
+        {
+            if (item is MenuItem sibling &&
+                sibling.Tag is WindowMenuItemKind siblingKind &&
+                siblingKind == kind)
+            {
+                return sibling;
+            }
+        }
+
+        return null;
+    }
+
+    private sealed class StableCommand(ICommand innerCommand) : ICommand
+    {
+        public event EventHandler? CanExecuteChanged
+        {
+            add { }
+            remove { }
+        }
+
+        public bool CanExecute(object? parameter)
+        {
+            return innerCommand.CanExecute(parameter);
+        }
+
+        public void Execute(object? parameter)
+        {
+            if (innerCommand.CanExecute(parameter))
+            {
+                innerCommand.Execute(parameter);
             }
         }
     }

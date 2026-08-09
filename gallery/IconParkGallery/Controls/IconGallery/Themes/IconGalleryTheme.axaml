@@ -4,9 +4,6 @@
     xmlns:atom="https://atomui.net"
     xmlns:gallery="https://atomui.net/icons/iconpark/icons-gallery"
     xmlns:iconpark="https://atomui.net/icons/iconpark"
-    xmlns:themeResources="using:AtomUI.Theme.Resources"
-    xmlns:generated="using:AtomUI.Generated.IconParkGallery"
-    themeResources:ControlTokenScope.Identity="{x:Static generated:IconGalleryThemeAsset.Identity}"
     x:ClassModifier="internal">
     <ControlTheme x:Key="{x:Type gallery:IconGallery}" TargetType="gallery:IconGallery">
         <Setter Property="Template">

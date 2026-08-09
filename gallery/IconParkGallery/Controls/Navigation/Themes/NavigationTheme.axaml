@@ -3,9 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:atom="https://atomui.net"
     xmlns:gallery="https://atomui.net/icons/iconpark/icons-gallery"
-    xmlns:themeResources="using:AtomUI.Theme.Resources"
-    xmlns:generated="using:AtomUI.Generated.IconParkGallery"
-    themeResources:ControlTokenScope.Identity="{x:Static generated:NavigationThemeAsset.Identity}"
     x:ClassModifier="internal">
     <ControlTheme x:Key="{x:Type gallery:Navigation}" TargetType="gallery:Navigation">
         <Setter Property="Template">
@@ -16,12 +13,22 @@
                                        DockPanel.Dock="Top"
                                        HorizontalAlignment="Stretch" SelectedIndex="1"
                                        Margin="0 0 0 10">
-                            <atom:ComboBoxItem Tag="{x:Static atom:IconThemeType.Outlined}">Outlined</atom:ComboBoxItem>
-                            <atom:ComboBoxItem Tag="{x:Static atom:IconThemeType.Filled}">Filled</atom:ComboBoxItem>
-                            <atom:ComboBoxItem Tag="{x:Static atom:IconThemeType.TwoTone}">Two tone</atom:ComboBoxItem>
-                            <atom:ComboBoxItem Tag="{x:Static atom:IconThemeType.MultiColor}">MultiColor</atom:ComboBoxItem>
+                            <atom:ComboBoxItem Tag="{x:Static atom:IconThemeType.Outlined}">
+                                <TextBlock Text="{gallery:NavigationLangResource IconThemeOutlined}" />
+                            </atom:ComboBoxItem>
+                            <atom:ComboBoxItem Tag="{x:Static atom:IconThemeType.Filled}">
+                                <TextBlock Text="{gallery:NavigationLangResource IconThemeFilled}" />
+                            </atom:ComboBoxItem>
+                            <atom:ComboBoxItem Tag="{x:Static atom:IconThemeType.TwoTone}">
+                                <TextBlock Text="{gallery:NavigationLangResource IconThemeTwoTone}" />
+                            </atom:ComboBoxItem>
+                            <atom:ComboBoxItem Tag="{x:Static atom:IconThemeType.MultiColor}">
+                                <TextBlock Text="{gallery:NavigationLangResource IconThemeMultiColor}" />
+                            </atom:ComboBoxItem>
                         </atom:ComboBox>
-                        <TextBlock DockPanel.Dock="Top" FontWeight="Bold">Category:</TextBlock>
+                        <TextBlock DockPanel.Dock="Top"
+                                   FontWeight="Bold"
+                                   Text="{gallery:NavigationLangResource CategoryLabel}" />
                         <ScrollViewer VerticalScrollBarVisibility="Auto"
                                       AllowAutoHide="False"
                                       BringIntoViewOnFocusChange="False">

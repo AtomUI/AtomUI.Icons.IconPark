@@ -1,0 +1,52 @@
+using AtomUI.Localization;
+
+namespace IconParkGallery.Localization;
+
+[LanguageCatalog(ContractVersion = 2)]
+public enum NavigationLangResourceKind
+{
+    IconThemeOutlined,
+    IconThemeFilled,
+    IconThemeTwoTone,
+    IconThemeMultiColor,
+    CategoryLabel,
+    CategoryAbstract,
+    CategoryAnimals,
+    CategoryArrows,
+    CategoryBaby,
+    CategoryBase,
+    CategoryBrand,
+    CategoryBuild,
+    CategoryCharacter,
+    CategoryCharts,
+    CategoryClothes,
+    CategoryCommunicate,
+    CategoryComponents,
+    CategoryConnect,
+    CategoryConstellation,
+    CategoryDatas,
+    CategoryEdit,
+    CategoryEmoji,
+    CategoryEnergy,
+    CategoryFoods,
+    CategoryGame,
+    CategoryGraphics,
+    CategoryHands,
+    CategoryHardware,
+    CategoryHealth,
+    CategoryIndustry,
+    CategoryLife,
+    CategoryMakeups,
+    CategoryMeasurement,
+    CategoryMoney,
+    CategoryMusic,
+    CategoryOffice,
+    CategoryOperate,
+    CategoryOthers,
+    CategoryPeoples,
+    CategorySafe,
+    CategorySports,
+    CategoryTime,
+    CategoryTravel,
+    CategoryWeather
+}

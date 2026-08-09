@@ -3,7 +3,7 @@ using IconParkGallery.Workspace.Views;
 
 namespace IconParkGallery;
 
-public partial class BaseGalleryApplication : Application
+public abstract partial class BaseGalleryApplication : Application
 {
     protected WorkspaceWindow CreateWorkspaceWindow()
     {

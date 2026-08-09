@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="2.1" srcLang="en-US" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+  <file id="IconParkGallery.Localization.NavigationLangResourceKind">
+    <unit id="IconThemeOutlined">
+      <segment>
+        <source>Outlined</source>
+      </segment>
+    </unit>
+    <unit id="IconThemeFilled">
+      <segment>
+        <source>Filled</source>
+      </segment>
+    </unit>
+    <unit id="IconThemeTwoTone">
+      <segment>
+        <source>Two tone</source>
+      </segment>
+    </unit>
+    <unit id="IconThemeMultiColor">
+      <segment>
+        <source>MultiColor</source>
+      </segment>
+    </unit>
+    <unit id="CategoryLabel">
+      <segment>
+        <source>Category:</source>
+      </segment>
+    </unit>
+    <unit id="CategoryAbstract">
+      <segment>
+        <source>Abstract</source>
+      </segment>
+    </unit>
+    <unit id="CategoryAnimals">
+      <segment>
+        <source>Animals</source>
+      </segment>
+    </unit>
+    <unit id="CategoryArrows">
+      <segment>
+        <source>Arrows</source>
+      </segment>
+    </unit>
+    <unit id="CategoryBaby">
+      <segment>
+        <source>Baby</source>
+      </segment>
+    </unit>
+    <unit id="CategoryBase">
+      <segment>
+        <source>Base</source>
+      </segment>
+    </unit>
+    <unit id="CategoryBrand">
+      <segment>
+        <source>Brand</source>
+      </segment>
+    </unit>
+    <unit id="CategoryBuild">
+      <segment>
+        <source>Build</source>
+      </segment>
+    </unit>
+    <unit id="CategoryCharacter">
+      <segment>
+        <source>Character</source>
+      </segment>
+    </unit>
+    <unit id="CategoryCharts">
+      <segment>
+        <source>Charts</source>
+      </segment>
+    </unit>
+    <unit id="CategoryClothes">
+      <segment>
+        <source>Clothes</source>
+      </segment>
+    </unit>
+    <unit id="CategoryCommunicate">
+      <segment>
+        <source>Communicate</source>
+      </segment>
+    </unit>
+    <unit id="CategoryComponents">
+      <segment>
+        <source>Components</source>
+      </segment>
+    </unit>
+    <unit id="CategoryConnect">
+      <segment>
+        <source>Connect</source>
+      </segment>
+    </unit>
+    <unit id="CategoryConstellation">
+      <segment>
+        <source>Constellation</source>
+      </segment>
+    </unit>
+    <unit id="CategoryDatas">
+      <segment>
+        <source>Datas</source>
+      </segment>
+    </unit>
+    <unit id="CategoryEdit">
+      <segment>
+        <source>Edit</source>
+      </segment>
+    </unit>
+    <unit id="CategoryEmoji">
+      <segment>
+        <source>Emoji</source>
+      </segment>
+    </unit>
+    <unit id="CategoryEnergy">
+      <segment>
+        <source>Energy</source>
+      </segment>
+    </unit>
+    <unit id="CategoryFoods">
+      <segment>
+        <source>Foods</source>
+      </segment>
+    </unit>
+    <unit id="CategoryGame">
+      <segment>
+        <source>Game</source>
+      </segment>
+    </unit>
+    <unit id="CategoryGraphics">
+      <segment>
+        <source>Graphics</source>
+      </segment>
+    </unit>
+    <unit id="CategoryHands">
+      <segment>
+        <source>Hands</source>
+      </segment>
+    </unit>
+    <unit id="CategoryHardware">
+      <segment>
+        <source>Hardware</source>
+      </segment>
+    </unit>
+    <unit id="CategoryHealth">
+      <segment>
+        <source>Health</source>
+      </segment>
+    </unit>
+    <unit id="CategoryIndustry">
+      <segment>
+        <source>Industry</source>
+      </segment>
+    </unit>
+    <unit id="CategoryLife">
+      <segment>
+        <source>Life</source>
+      </segment>
+    </unit>
+    <unit id="CategoryMakeups">
+      <segment>
+        <source>Makeups</source>
+      </segment>
+    </unit>
+    <unit id="CategoryMeasurement">
+      <segment>
+        <source>Measurement</source>
+      </segment>
+    </unit>
+    <unit id="CategoryMoney">
+      <segment>
+        <source>Money</source>
+      </segment>
+    </unit>
+    <unit id="CategoryMusic">
+      <segment>
+        <source>Music</source>
+      </segment>
+    </unit>
+    <unit id="CategoryOffice">
+      <segment>
+        <source>Office</source>
+      </segment>
+    </unit>
+    <unit id="CategoryOperate">
+      <segment>
+        <source>Operate</source>
+      </segment>
+    </unit>
+    <unit id="CategoryOthers">
+      <segment>
+        <source>Others</source>
+      </segment>
+    </unit>
+    <unit id="CategoryPeoples">
+      <segment>
+        <source>Peoples</source>
+      </segment>
+    </unit>
+    <unit id="CategorySafe">
+      <segment>
+        <source>Safe</source>
+      </segment>
+    </unit>
+    <unit id="CategorySports">
+      <segment>
+        <source>Sports</source>
+      </segment>
+    </unit>
+    <unit id="CategoryTime">
+      <segment>
+        <source>Time</source>
+      </segment>
+    </unit>
+    <unit id="CategoryTravel">
+      <segment>
+        <source>Travel</source>
+      </segment>
+    </unit>
+    <unit id="CategoryWeather">
+      <segment>
+        <source>Weather</source>
+      </segment>
+    </unit>
+  </file>
+</xliff>

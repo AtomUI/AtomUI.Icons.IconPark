@@ -12,15 +12,16 @@ internal static class GeneratedThemeSchema
     private static readonly ControlTokenDescriptor[] s_controls = new ControlTokenDescriptor[]
     {
         new ControlTokenDescriptor(
-            new ControlTokenIdentity("AtomUI", "IconGallery"),
+            typeof(global::IconParkGallery.Controls.IconGallery),
+            new ControlTokenIdentity("IconParkGallery", "IconGallery"),
             new TokenDescriptor[]
             {
-                new TokenDescriptor("IconSize", 0, TokenStage.Control, typeof(global::System.Double), global::IconParkGallery.Controls.DesignTokens.IconGalleryTokenKind.IconSize,
+                new TokenDescriptor("GalleryIconSize", 0, TokenStage.Control, typeof(global::System.Double), global::IconParkGallery.Controls.DesignTokens.IconGalleryTokenKind.GalleryIconSize,
                     static value => ThemeTokenValueParser.Parse<global::System.Double>(value),
                     static value => ThemeTokenValueFormatter.Format((global::System.Double)value!),
-                    static token => ((global::IconParkGallery.Controls.IconGalleryToken)token).IconSize,
-                    static (token, value) => ((global::IconParkGallery.Controls.IconGalleryToken)token).IconSize = (global::System.Double)value!,
-                    static token => ThemeResourceValue.Project(((global::IconParkGallery.Controls.IconGalleryToken)token).IconSize)),
+                    static token => ((global::IconParkGallery.Controls.IconGalleryToken)token).GalleryIconSize,
+                    static (token, value) => ((global::IconParkGallery.Controls.IconGalleryToken)token).GalleryIconSize = (global::System.Double)value!,
+                    static token => ThemeResourceValue.Project(((global::IconParkGallery.Controls.IconGalleryToken)token).GalleryIconSize)),
                 new TokenDescriptor("InfoItemSize", 1, TokenStage.Control, typeof(global::System.Double), global::IconParkGallery.Controls.DesignTokens.IconGalleryTokenKind.InfoItemSize,
                     static value => ThemeTokenValueParser.Parse<global::System.Double>(value),
                     static value => ThemeTokenValueFormatter.Format((global::System.Double)value!),
@@ -37,7 +38,12 @@ internal static class GeneratedThemeSchema
             static () => new global::IconParkGallery.Controls.IconGalleryToken(),
             static (token, appearance) => ((global::IconParkGallery.Controls.IconGalleryToken)token).CalculateTokenValues(appearance == global::AtomUI.Theme.ThemeAppearance.Dark)),
         new ControlTokenDescriptor(
-            new ControlTokenIdentity("AtomUI", "Navigation"),
+            typeof(global::IconParkGallery.Controls.IconInfoItem),
+            new ControlTokenIdentity("IconParkGallery", "IconInfoItem")
+        ),
+        new ControlTokenDescriptor(
+            typeof(global::IconParkGallery.Controls.Navigation),
+            new ControlTokenIdentity("IconParkGallery", "Navigation"),
             new TokenDescriptor[]
             {
                 new TokenDescriptor("PanelWidth", 0, TokenStage.Control, typeof(global::System.Double), global::IconParkGallery.Controls.DesignTokens.NavigationTokenKind.PanelWidth,

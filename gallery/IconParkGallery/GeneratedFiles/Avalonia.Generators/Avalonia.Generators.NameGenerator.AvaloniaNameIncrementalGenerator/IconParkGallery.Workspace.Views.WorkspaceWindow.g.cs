@@ -8,9 +8,11 @@ namespace IconParkGallery.Workspace.Views
 {
     partial class WorkspaceWindow
     {
-        [global::System.CodeDom.Compiler.GeneratedCode("Avalonia.Generators.NameGenerator.InitializeComponentCodeGenerator", "12.1.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCode("Avalonia.Generators.NameGenerator.InitializeComponentCodeGenerator", "12.1.1.0")]
+        internal global::AtomUI.Desktop.Controls.MenuItem ThemeCatalogMenuItem;
+        [global::System.CodeDom.Compiler.GeneratedCode("Avalonia.Generators.NameGenerator.InitializeComponentCodeGenerator", "12.1.1.0")]
         internal global::IconParkGallery.Controls.Navigation Navigation;
-        [global::System.CodeDom.Compiler.GeneratedCode("Avalonia.Generators.NameGenerator.InitializeComponentCodeGenerator", "12.1.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCode("Avalonia.Generators.NameGenerator.InitializeComponentCodeGenerator", "12.1.1.0")]
         internal global::IconParkGallery.Controls.IconGallery Gallery;
 
         /// <summary>
@@ -18,7 +20,7 @@ namespace IconParkGallery.Workspace.Views
         /// </summary>
         /// <param name="loadXaml">Should the XAML be loaded into the component.</param>
 
-        [global::System.CodeDom.Compiler.GeneratedCode("Avalonia.Generators.NameGenerator.InitializeComponentCodeGenerator", "12.1.0.0")]
+        [global::System.CodeDom.Compiler.GeneratedCode("Avalonia.Generators.NameGenerator.InitializeComponentCodeGenerator", "12.1.1.0")]
         [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
         public void InitializeComponent(bool loadXaml = true)
         {
@@ -28,6 +30,7 @@ namespace IconParkGallery.Workspace.Views
             }
 
             var __thisNameScope__ = this.FindNameScope();
+            ThemeCatalogMenuItem = __thisNameScope__?.Find<global::AtomUI.Desktop.Controls.MenuItem>("ThemeCatalogMenuItem");
             Navigation = __thisNameScope__?.Find<global::IconParkGallery.Controls.Navigation>("Navigation");
             Gallery = __thisNameScope__?.Find<global::IconParkGallery.Controls.IconGallery>("Gallery");
         }

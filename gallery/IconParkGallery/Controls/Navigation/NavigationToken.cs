@@ -15,7 +15,6 @@ internal class NavigationToken : AbstractControlDesignToken
     public double PanelWidth { get; set; }
 
     public NavigationToken()
-        : base(ID)
     {
     }
     

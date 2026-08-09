@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="2.1" srcLang="en-US" trgLang="pt-BR" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+  <file id="IconParkGallery.Localization.NavigationLangResourceKind">
+    <unit id="IconThemeOutlined">
+      <segment>
+        <source>Outlined</source>
+        <target state="translated">Contorno</target>
+      </segment>
+    </unit>
+    <unit id="IconThemeFilled">
+      <segment>
+        <source>Filled</source>
+        <target state="translated">Preenchido</target>
+      </segment>
+    </unit>
+    <unit id="IconThemeTwoTone">
+      <segment>
+        <source>Two tone</source>
+        <target state="translated">Dois tons</target>
+      </segment>
+    </unit>
+    <unit id="IconThemeMultiColor">
+      <segment>
+        <source>MultiColor</source>
+        <target state="translated">Multicolorido</target>
+      </segment>
+    </unit>
+    <unit id="CategoryLabel">
+      <segment>
+        <source>Category:</source>
+        <target state="translated">Categoria:</target>
+      </segment>
+    </unit>
+    <unit id="CategoryAbstract">
+      <segment>
+        <source>Abstract</source>
+        <target state="translated">Abstrato</target>
+      </segment>
+    </unit>
+    <unit id="CategoryAnimals">
+      <segment>
+        <source>Animals</source>
+        <target state="translated">Animais</target>
+      </segment>
+    </unit>
+    <unit id="CategoryArrows">
+      <segment>
+        <source>Arrows</source>
+        <target state="translated">Setas</target>
+      </segment>
+    </unit>
+    <unit id="CategoryBaby">
+      <segment>
+        <source>Baby</source>
+        <target state="translated">Bebê</target>
+      </segment>
+    </unit>
+    <unit id="CategoryBase">
+      <segment>
+        <source>Base</source>
+        <target state="translated">Base</target>
+      </segment>
+    </unit>
+    <unit id="CategoryBrand">
+      <segment>
+        <source>Brand</source>
+        <target state="translated">Marca</target>
+      </segment>
+    </unit>
+    <unit id="CategoryBuild">
+      <segment>
+        <source>Build</source>
+        <target state="translated">Construção</target>
+      </segment>
+    </unit>
+    <unit id="CategoryCharacter">
+      <segment>
+        <source>Character</source>
+        <target state="translated">Caracteres</target>
+      </segment>
+    </unit>
+    <unit id="CategoryCharts">
+      <segment>
+        <source>Charts</source>
+        <target state="translated">Gráficos</target>
+      </segment>
+    </unit>
+    <unit id="CategoryClothes">
+      <segment>
+        <source>Clothes</source>
+        <target state="translated">Roupas</target>
+      </segment>
+    </unit>
+    <unit id="CategoryCommunicate">
+      <segment>
+        <source>Communicate</source>
+        <target state="translated">Comunicação</target>
+      </segment>
+    </unit>
+    <unit id="CategoryComponents">
+      <segment>
+        <source>Components</source>
+        <target state="translated">Componentes</target>
+      </segment>
+    </unit>
+    <unit id="CategoryConnect">
+      <segment>
+        <source>Connect</source>
+        <target state="translated">Conexão</target>
+      </segment>
+    </unit>
+    <unit id="CategoryConstellation">
+      <segment>
+        <source>Constellation</source>
+        <target state="translated">Constelação</target>
+      </segment>
+    </unit>
+    <unit id="CategoryDatas">
+      <segment>
+        <source>Datas</source>
+        <target state="translated">Dados</target>
+      </segment>
+    </unit>
+    <unit id="CategoryEdit">
+      <segment>
+        <source>Edit</source>
+        <target state="translated">Edição</target>
+      </segment>
+    </unit>
+    <unit id="CategoryEmoji">
+      <segment>
+        <source>Emoji</source>
+        <target state="translated">Emoji</target>
+      </segment>
+    </unit>
+    <unit id="CategoryEnergy">
+      <segment>
+        <source>Energy</source>
+        <target state="translated">Energia &amp; vida</target>
+      </segment>
+    </unit>
+    <unit id="CategoryFoods">
+      <segment>
+        <source>Foods</source>
+        <target state="translated">Alimentos</target>
+      </segment>
+    </unit>
+    <unit id="CategoryGame">
+      <segment>
+        <source>Game</source>
+        <target state="translated">Jogos</target>
+      </segment>
+    </unit>
+    <unit id="CategoryGraphics">
+      <segment>
+        <source>Graphics</source>
+        <target state="translated">Formas geométricas</target>
+      </segment>
+    </unit>
+    <unit id="CategoryHands">
+      <segment>
+        <source>Hands</source>
+        <target state="translated">Gestos</target>
+      </segment>
+    </unit>
+    <unit id="CategoryHardware">
+      <segment>
+        <source>Hardware</source>
+        <target state="translated">Hardware</target>
+      </segment>
+    </unit>
+    <unit id="CategoryHealth">
+      <segment>
+        <source>Health</source>
+        <target state="translated">Saúde</target>
+      </segment>
+    </unit>
+    <unit id="CategoryIndustry">
+      <segment>
+        <source>Industry</source>
+        <target state="translated">Indústria</target>
+      </segment>
+    </unit>
+    <unit id="CategoryLife">
+      <segment>
+        <source>Life</source>
+        <target state="translated">Vida</target>
+      </segment>
+    </unit>
+    <unit id="CategoryMakeups">
+      <segment>
+        <source>Makeups</source>
+        <target state="translated">Maquiagem</target>
+      </segment>
+    </unit>
+    <unit id="CategoryMeasurement">
+      <segment>
+        <source>Measurement</source>
+        <target state="translated">Medição &amp; teste</target>
+      </segment>
+    </unit>
+    <unit id="CategoryMoney">
+      <segment>
+        <source>Money</source>
+        <target state="translated">Comércio &amp; finanças</target>
+      </segment>
+    </unit>
+    <unit id="CategoryMusic">
+      <segment>
+        <source>Music</source>
+        <target state="translated">Multimídia &amp; música</target>
+      </segment>
+    </unit>
+    <unit id="CategoryOffice">
+      <segment>
+        <source>Office</source>
+        <target state="translated">Escritório</target>
+      </segment>
+    </unit>
+    <unit id="CategoryOperate">
+      <segment>
+        <source>Operate</source>
+        <target state="translated">Ajustes visuais</target>
+      </segment>
+    </unit>
+    <unit id="CategoryOthers">
+      <segment>
+        <source>Others</source>
+        <target state="translated">Outros</target>
+      </segment>
+    </unit>
+    <unit id="CategoryPeoples">
+      <segment>
+        <source>Peoples</source>
+        <target state="translated">Pessoas</target>
+      </segment>
+    </unit>
+    <unit id="CategorySafe">
+      <segment>
+        <source>Safe</source>
+        <target state="translated">Segurança &amp; proteção</target>
+      </segment>
+    </unit>
+    <unit id="CategorySports">
+      <segment>
+        <source>Sports</source>
+        <target state="translated">Esportes</target>
+      </segment>
+    </unit>
+    <unit id="CategoryTime">
+      <segment>
+        <source>Time</source>
+        <target state="translated">Hora &amp; data</target>
+      </segment>
+    </unit>
+    <unit id="CategoryTravel">
+      <segment>
+        <source>Travel</source>
+        <target state="translated">Viagem &amp; transporte</target>
+      </segment>
+    </unit>
+    <unit id="CategoryWeather">
+      <segment>
+        <source>Weather</source>
+        <target state="translated">Clima</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="2.1" srcLang="en-US" trgLang="zh-CN" xmlns="urn:oasis:names:tc:xliff:document:2.0">
+  <file id="IconParkGallery.Localization.NavigationLangResourceKind">
+    <unit id="IconThemeOutlined">
+      <segment>
+        <source>Outlined</source>
+        <target state="translated">描边</target>
+      </segment>
+    </unit>
+    <unit id="IconThemeFilled">
+      <segment>
+        <source>Filled</source>
+        <target state="translated">填充</target>
+      </segment>
+    </unit>
+    <unit id="IconThemeTwoTone">
+      <segment>
+        <source>Two tone</source>
+        <target state="translated">双色</target>
+      </segment>
+    </unit>
+    <unit id="IconThemeMultiColor">
+      <segment>
+        <source>MultiColor</source>
+        <target state="translated">多色</target>
+      </segment>
+    </unit>
+    <unit id="CategoryLabel">
+      <segment>
+        <source>Category:</source>
+        <target state="translated">分类：</target>
+      </segment>
+    </unit>
+    <unit id="CategoryAbstract">
+      <segment>
+        <source>Abstract</source>
+        <target state="translated">抽象图形</target>
+      </segment>
+    </unit>
+    <unit id="CategoryAnimals">
+      <segment>
+        <source>Animals</source>
+        <target state="translated">动物</target>
+      </segment>
+    </unit>
+    <unit id="CategoryArrows">
+      <segment>
+        <source>Arrows</source>
+        <target state="translated">箭头方向</target>
+      </segment>
+    </unit>
+    <unit id="CategoryBaby">
+      <segment>
+        <source>Baby</source>
+        <target state="translated">母婴儿童</target>
+      </segment>
+    </unit>
+    <unit id="CategoryBase">
+      <segment>
+        <source>Base</source>
+        <target state="translated">基础</target>
+      </segment>
+    </unit>
+    <unit id="CategoryBrand">
+      <segment>
+        <source>Brand</source>
+        <target state="translated">品牌</target>
+      </segment>
+    </unit>
+    <unit id="CategoryBuild">
+      <segment>
+        <source>Build</source>
+        <target state="translated">建筑</target>
+      </segment>
+    </unit>
+    <unit id="CategoryCharacter">
+      <segment>
+        <source>Character</source>
+        <target state="translated">符号标识</target>
+      </segment>
+    </unit>
+    <unit id="CategoryCharts">
+      <segment>
+        <source>Charts</source>
+        <target state="translated">数据图表</target>
+      </segment>
+    </unit>
+    <unit id="CategoryClothes">
+      <segment>
+        <source>Clothes</source>
+        <target state="translated">服饰</target>
+      </segment>
+    </unit>
+    <unit id="CategoryCommunicate">
+      <segment>
+        <source>Communicate</source>
+        <target state="translated">交流沟通</target>
+      </segment>
+    </unit>
+    <unit id="CategoryComponents">
+      <segment>
+        <source>Components</source>
+        <target state="translated">界面组件</target>
+      </segment>
+    </unit>
+    <unit id="CategoryConnect">
+      <segment>
+        <source>Connect</source>
+        <target state="translated">链接</target>
+      </segment>
+    </unit>
+    <unit id="CategoryConstellation">
+      <segment>
+        <source>Constellation</source>
+        <target state="translated">星座</target>
+      </segment>
+    </unit>
+    <unit id="CategoryDatas">
+      <segment>
+        <source>Datas</source>
+        <target state="translated">数据</target>
+      </segment>
+    </unit>
+    <unit id="CategoryEdit">
+      <segment>
+        <source>Edit</source>
+        <target state="translated">编辑</target>
+      </segment>
+    </unit>
+    <unit id="CategoryEmoji">
+      <segment>
+        <source>Emoji</source>
+        <target state="translated">表情</target>
+      </segment>
+    </unit>
+    <unit id="CategoryEnergy">
+      <segment>
+        <source>Energy</source>
+        <target state="translated">能源 &amp; 生命</target>
+      </segment>
+    </unit>
+    <unit id="CategoryFoods">
+      <segment>
+        <source>Foods</source>
+        <target state="translated">食品</target>
+      </segment>
+    </unit>
+    <unit id="CategoryGame">
+      <segment>
+        <source>Game</source>
+        <target state="translated">游戏</target>
+      </segment>
+    </unit>
+    <unit id="CategoryGraphics">
+      <segment>
+        <source>Graphics</source>
+        <target state="translated">几何图形</target>
+      </segment>
+    </unit>
+    <unit id="CategoryHands">
+      <segment>
+        <source>Hands</source>
+        <target state="translated">手势动作</target>
+      </segment>
+    </unit>
+    <unit id="CategoryHardware">
+      <segment>
+        <source>Hardware</source>
+        <target state="translated">硬件</target>
+      </segment>
+    </unit>
+    <unit id="CategoryHealth">
+      <segment>
+        <source>Health</source>
+        <target state="translated">医疗健康</target>
+      </segment>
+    </unit>
+    <unit id="CategoryIndustry">
+      <segment>
+        <source>Industry</source>
+        <target state="translated">工业</target>
+      </segment>
+    </unit>
+    <unit id="CategoryLife">
+      <segment>
+        <source>Life</source>
+        <target state="translated">生活</target>
+      </segment>
+    </unit>
+    <unit id="CategoryMakeups">
+      <segment>
+        <source>Makeups</source>
+        <target state="translated">化妆美妆</target>
+      </segment>
+    </unit>
+    <unit id="CategoryMeasurement">
+      <segment>
+        <source>Measurement</source>
+        <target state="translated">测量 &amp; 试验</target>
+      </segment>
+    </unit>
+    <unit id="CategoryMoney">
+      <segment>
+        <source>Money</source>
+        <target state="translated">电商财产</target>
+      </segment>
+    </unit>
+    <unit id="CategoryMusic">
+      <segment>
+        <source>Music</source>
+        <target state="translated">多媒体音乐</target>
+      </segment>
+    </unit>
+    <unit id="CategoryOffice">
+      <segment>
+        <source>Office</source>
+        <target state="translated">办公文档</target>
+      </segment>
+    </unit>
+    <unit id="CategoryOperate">
+      <segment>
+        <source>Operate</source>
+        <target state="translated">美颜调整</target>
+      </segment>
+    </unit>
+    <unit id="CategoryOthers">
+      <segment>
+        <source>Others</source>
+        <target state="translated">其它</target>
+      </segment>
+    </unit>
+    <unit id="CategoryPeoples">
+      <segment>
+        <source>Peoples</source>
+        <target state="translated">用户人名</target>
+      </segment>
+    </unit>
+    <unit id="CategorySafe">
+      <segment>
+        <source>Safe</source>
+        <target state="translated">安全 &amp; 防护</target>
+      </segment>
+    </unit>
+    <unit id="CategorySports">
+      <segment>
+        <source>Sports</source>
+        <target state="translated">体育运动</target>
+      </segment>
+    </unit>
+    <unit id="CategoryTime">
+      <segment>
+        <source>Time</source>
+        <target state="translated">时间日期</target>
+      </segment>
+    </unit>
+    <unit id="CategoryTravel">
+      <segment>
+        <source>Travel</source>
+        <target state="translated">交通旅游</target>
+      </segment>
+    </unit>
+    <unit id="CategoryWeather">
+      <segment>
+        <source>Weather</source>
+        <target state="translated">天气</target>
+      </segment>
+    </unit>
+  </file>
+</xliff>
